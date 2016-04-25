@@ -2,7 +2,7 @@
 Hier ist unser gemeinsames Repository. <- Dieser Text möchte geändert werden ;)
 
 # Contributors
-...
+Timo Wiedemann
 
 # License
 This software is free to use under the BSD license. See the [LICENSE file](LICENSE.md) for license text and copyright information.
