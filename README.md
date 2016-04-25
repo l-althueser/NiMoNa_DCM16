@@ -1,7 +1,7 @@
 # NiMoNa_DCM16
 Hier ist unser gemeinsames Repository. <- Dieser Text möchte geändert werden ;)
 
-# Contributors
+# Mitwirkende
 Timo Wiedemann
 
 # License
