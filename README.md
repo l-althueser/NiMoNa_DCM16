@@ -2,6 +2,7 @@
 Hier ist unser gemeinsames Repository. <- Dieser Text möchte geändert werden ;)
 
 # Contributors
+Lutz Althüser
 Timo Wiedemann
 
 # License
