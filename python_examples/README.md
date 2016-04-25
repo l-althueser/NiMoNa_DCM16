@@ -9,7 +9,7 @@ Bei Windows kann man Python im wesentlichen auf zwei verschiedene Arten installi
 
 ## 'Hello World.'
 
-'''
+```python
 #!/usr/bin/env python
 
 #==============================================================================
@@ -19,7 +19,7 @@ Bei Windows kann man Python im wesentlichen auf zwei verschiedene Arten installi
 # author         :l-althueser
 #
 # usage          :python python3_test.py
-# python_version :3.5.1
+# python_version :3.5.1 
 #
 # changes/notes  :20160425 :Added file header.
 #				 :20160426 :Added ability to print "Hello World!"
@@ -27,5 +27,5 @@ Bei Windows kann man Python im wesentlichen auf zwei verschiedene Arten installi
 
 # The following line will be printed
 print("Hello World.")
-'''
+```
 
