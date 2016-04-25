@@ -6,7 +6,7 @@ Hier ist unser gemeinsames Repository. <- Dieser Text möchte geändert werden ;
 ## Inhalt
 Hier findet sich eine kurze Erleuterung der verschiedenen Unterordner und generelle Informationen zu spezifischen Themen.
 
-### [Numerische Beispiele](numerical_examples/README.md)
+### [Numerische Beispiele](numerical_examples)
 Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden.
 
 **Enthalten sind:**  
