@@ -10,8 +10,8 @@ Hier findet sich eine kurze Erleuterung der verschiedenen Unterordner und genere
 Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden.
 
 *Enthalten sind:*  
-1. Euler-Verfahren
-2. Runge-Kutta-Verfahren
+1. Euler-Verfahren  
+2. Runge-Kutta-Verfahren  
   * 4. Ordnung (RK4)
   
 ### Dynamic Causal Modelling (DCM)
@@ -34,8 +34,12 @@ Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzw
 ---
   
 ## Mitwirkende (In alphabetischer Reihenfolge)
-* Lutz Althüser
-* Timo Wiedemann
+* Lutz Althüser  
+* Felix Ebert  
+* Tobias Frohoff-Hülsmann  
+* Victor Kärcher  
+* Lukas Johannes Splitthoff  
+* Timo Wiedemann  
 
 Unterstützt durch: Christian Himpe
 
