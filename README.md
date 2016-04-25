@@ -6,10 +6,10 @@ Hier ist unser gemeinsames Repository. <- Dieser Text möchte geändert werden ;
 ## Inhalt
 Hier findet sich eine kurze Erleuterung der verschiedenen Unterordner und generelle Informationen zu spezifischen Themen.
 
-### Numerische Beispiele
+### [Numerische Beispiele](numerical_examples/README.md)
 Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden.
 
-*Enthalten sind:*  
+**Enthalten sind:**  
 1. Euler-Verfahren  
 2. Runge-Kutta-Verfahren  
   * 4. Ordnung (RK4)
