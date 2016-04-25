@@ -36,7 +36,7 @@ Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzw
 ## [Einfache Python Beispiele](python_examples)
 Für weitere Informationen und Beispiele folge dem [Link](python_examples).
 
-'''
+```python
 #!/usr/bin/env python
 
 #==============================================================================
@@ -54,7 +54,7 @@ Für weitere Informationen und Beispiele folge dem [Link](python_examples).
 
 # The following line will be printed
 print("Hello World.")
-'''
+```
 
 ---
   
