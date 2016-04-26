@@ -1,6 +1,17 @@
 # [Einfaches Python Beispiel](python_examples)
 Hier finden sich verschiedene Beispiele für Python Programme.
 
+## Python Lernhilfen
+* [http://wwwmath.uni-muenster.de/num/Vorlesungen/Pythonkurs_SS14/](http://wwwmath.uni-muenster.de/num/Vorlesungen/Pythonkurs_SS14/)  
+* [http://www.learnpython.org/](http://www.learnpython.org/)  
+* [http://www.python-kurs.eu/kurs.php](http://www.python-kurs.eu/kurs.php)  
+
+Die Grundlage für die numerische Programmierung sollen für uns die Pakete
+NumPy / SciPy sein:
+* [http://numpy.org](http://numpy.org)  
+* [http://scipy.org](http://scipy.org)  
+* [http://www.labri.fr/perso/nrougier/teaching/numpy/numpy.html](http://www.labri.fr/perso/nrougier/teaching/numpy/numpy.html)
+
 ## Installation
 Generell sollte die Python Version **3.5.X** verwendet werden.
 
