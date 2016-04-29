@@ -13,7 +13,7 @@
 #==============================================================================
 
 import math
-from Euler_1O import Euler_1O
 
 # Explizites Euler-Verfahren 1. Ordnung
 print(Euler_1O(lambda x, y: math.cos(x), 0, 1, 1, 1000)) # <- Ausgabe sollte als Matrix erfolgen ..
+

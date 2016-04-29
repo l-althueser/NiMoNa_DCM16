@@ -4,7 +4,8 @@
 #	Euler_1O.py
 #------------------------------------------------------------------------------
 # description    :Implementation eines Euler Verfahrens 1. Ordnung (1O).
-# author         :l-althueser
+# author         :	l-althueser
+#				t-wiedemann
 #
 # usage          :
 # python_version :3.5.1
@@ -13,6 +14,11 @@
 #==============================================================================
 
 # Explizites Euler-Verfahren 1. Ordnung
+# Merke Euler-Verfahren = RK1
+# y' = f0(t,y)
+# y(t_n+1) = y_n+1 = y_n + h * f(t_n,y_n)
+
+
 def Euler_1O(f,t_0,t_k,y_0,n):
 	# f  : gegeben als y' = f(t,y)
 	# t_0: Startwert für t (initial value)
@@ -25,7 +31,9 @@ def Euler_1O(f,t_0,t_k,y_0,n):
     h = (t_k - t_0) / float(n)
     t = t_0
     y = y_0
-    for i in range(n):
+    
+    for i in range(n):			
         y += h * f(t, y)
         t += h
-    return y # <- Hier eine Matrix rausgeben!
+        M = 
+    return 
