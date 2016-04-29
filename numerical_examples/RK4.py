@@ -14,12 +14,9 @@
 
 import numpy as np
 def RK4_method(f,z_0,dt,t0,T):  
-    #Input: Funktion, Anfangswert(arrany), Zeitschrittweite, Endzeit
+    #Input: Funktion, Anfangswert(array), Zeitschrittweite,Anfangszeit, Endzeit
    
     z=z_0
-    #print(z[1,0])
-    #Lege Liste an, entspricht nachher Trajektorie
-   # t=np.arange(0,T,dt)
    
         
     for i in range(0,int((T-t0)/dt-1),1):
