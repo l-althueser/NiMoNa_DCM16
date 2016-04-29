@@ -12,8 +12,8 @@ import RK4 as RK
 import matplotlib.pyplot as plt
 
 
-z_0=np.array([[1],[2]])    #Anfangswertvektor
-#print(z_0[0])
+z_0=np.array([[1],[2]])    #Anfangswertvektor, bereits in gewünschter Matrixschreibweise
+
 T=10
 t0=2
 dt=0.1              

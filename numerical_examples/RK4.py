@@ -20,7 +20,7 @@ def RK4_method(f,z_0,dt,t0,T):
    
         
     for i in range(0,int((T-t0)/dt-1),1):
-        # define all k
+        
         z_aktuell=np.hsplit(z,(i,i+1))[1] #Schneidet den aktuellen Output-Vektor aus der Matrix heraus
         
         
