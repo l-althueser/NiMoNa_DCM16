@@ -31,9 +31,7 @@ def Euler_1O(f,t_0,t_k,y_0,n):
     h = (t_k - t_0) / float(n)
     t = t_0
     y = y_0
-    
     for i in range(n):			
         y += h * f(t, y)
         t += h
-        M = 
-    return 
+    return y # <- hier sollte Matrix ausgegeben werden
