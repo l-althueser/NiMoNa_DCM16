@@ -29,20 +29,23 @@ C=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix C
 u=np.array([[1],[1],[2]])      #Anregung u
 
 
-
 #---------------------------------------------------------------------------------------------------------------------
-const=C*u  #C*u ist immer konstant, kann deshalb einfach übergeben werden
-            
+const=C*u  #C*u ist immer konstant, kann deshalb einfach uebergeben werden
+
+
+     
 for i in range(len(D)):
     B=+D[i]*u[i]
-        
 
-def f(x,A,B,const):       #Gibt die Zeitableitung x_dot wider
-        return (A+B)*x+const     
+teta=list((A,B,const))  #Parameterset
+
+
+def f(x,teta):       #Gibt die Zeitableitung x_dot wider
+    return (teta[0]+teta[1])*x+teta[2]     
     
 
 
-z=RK.RK4_method(f,A,B,const,z_0,dt,t0,T)
+z=RK.RK4_method(f,teta,z_0,dt,t0,T)
 #print(z[1,:],t)
 plt.figure()
 for i in range(len(z_0)):
