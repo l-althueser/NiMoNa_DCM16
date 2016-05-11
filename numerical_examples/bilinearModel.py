@@ -14,23 +14,33 @@ import matplotlib.pyplot as plt
 
 z_0=np.array([[1],[2],[3]])    #Anfangswertvektor, bereits in gewünschter Matrixschreibweise
 
-T=2.2
+T=10
 t0=2
 dt=0.1              
 t = np.arange(t0,T,dt) 
 
-def f(x):       #Gibt die Zeitableitung x_dot wider
-    A=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix A
+
+A=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix A
+B=np.array([np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3"),
+            np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3"),
+            np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")])    #Matrix B
+C=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix A
+u=np.array([[1],[1],[2]])      
+
+def f(x,A,B,C,u):       #Gibt die Zeitableitung x_dot wider
+   # print(B*u)
+    for i in range(len(B)):
+        D=+B[i]*u[i]
+        #print(D)
+    x_dot=(A+D)*x+C*u     #So muss x(t)=exp(t) herauskommen
     
-    x_dot=A*x     #So muss x(t)=exp(t) herauskommen
-    #print(x_dot,'hi')
     return x_dot
 
-z=RK.RK4_method(f,z_0,dt,t0,T)
-print(z[1,:],t)
+z=RK.RK4_method(f,A,B,C,u,z_0,dt,t0,T)
+#print(z[1,:],t)
 plt.figure()
 for i in range(len(z_0)):
-    plt.plot(t,z[i,:])      #Jede Zeile wird gegen die Zeit geplottet
+    plt.plot(t,np.squeeze(np.asarray(z[i,:])))      #Jede Zeile wird gegen die Zeit geplottet
 
 plt.savefig("test")
 
