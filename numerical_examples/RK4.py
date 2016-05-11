@@ -13,13 +13,14 @@
 #==============================================================================
 
 import numpy as np
+import math
 def RK4_method(f,z_0,dt,t0,T):  
     #Input: Funktion, Anfangswert(array), Zeitschrittweite,Anfangszeit, Endzeit
    
     z=z_0
    
         
-    for i in range(0,int((T-t0)/dt-1),1):
+    for i in range(0,int(math.ceil((T-t0)/dt-1)),1):
         
         z_aktuell=np.hsplit(z,(i,i+1))[1] #Schneidet den aktuellen Output-Vektor aus der Matrix heraus
         
