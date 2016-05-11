@@ -11,32 +11,38 @@ import numpy as np
 import RK4 as RK
 import matplotlib.pyplot as plt
 
-
+#Eingabe systemabhängiger Parameter
 z_0=np.array([[1],[2],[3]])    #Anfangswertvektor, bereits in gewünschter Matrixschreibweise
 
-T=10
-t0=2
-dt=0.1              
-t = np.arange(t0,T,dt) 
+T=10    #Endzeit
+t0=2    #Anfangszeit
+dt=0.1              #Zeitschrittlaenge
+t = np.arange(t0,T,dt)      #Zeitarray
 
 
 A=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix A
-B=np.array([np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3"),
+D=np.array([np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3"),
             np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3"),
-            np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")])    #Matrix B
-C=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix A
-u=np.array([[1],[1],[2]])      
+            np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")])    #Array D hat als Einträge Matrizen B1,B2,...
+            
+C=np.matrix("-0.4, 0, 0; 0, 0.1, 0; 0, 0, -0.3")    #Matrix C
+u=np.array([[1],[1],[2]])      #Anregung u
 
-def f(x,A,B,C,u):       #Gibt die Zeitableitung x_dot wider
-   # print(B*u)
-    for i in range(len(B)):
-        D=+B[i]*u[i]
-        #print(D)
-    x_dot=(A+D)*x+C*u     #So muss x(t)=exp(t) herauskommen
+
+
+#---------------------------------------------------------------------------------------------------------------------
+const=C*u  #C*u ist immer konstant, kann deshalb einfach übergeben werden
+            
+for i in range(len(D)):
+    B=+D[i]*u[i]
+        
+
+def f(x,A,B,const):       #Gibt die Zeitableitung x_dot wider
+        return (A+B)*x+const     
     
-    return x_dot
 
-z=RK.RK4_method(f,A,B,C,u,z_0,dt,t0,T)
+
+z=RK.RK4_method(f,A,B,const,z_0,dt,t0,T)
 #print(z[1,:],t)
 plt.figure()
 for i in range(len(z_0)):
