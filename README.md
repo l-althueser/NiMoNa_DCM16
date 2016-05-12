@@ -60,7 +60,6 @@ print("Hello World.")
   
 ## Mitwirkende (In alphabetischer Reihenfolge)
 * Lutz Althüser  
-* Felix Ebert  
 * Tobias Frohoff-Hülsmann  
 * Victor Kärcher  
 * Lukas Johannes Splitthoff  
@@ -71,4 +70,4 @@ Unterstützt durch: Christian Himpe
 ---
 
 ## License
-This software is free to use under the BSD license. See the [LICENSE file](LICENSE.md) for license text and copyright information.
+This software is free to use under the BSD license. See the [LICENSE](LICENSE.md) file for license text and copyright information.
