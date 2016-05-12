@@ -12,7 +12,7 @@ import RK4 as RK
 import matplotlib.pyplot as plt
 
 #Eingabe systemabhängiger Parameter
-z_0=np.array([[1],[2],[3],[1],[2],[3],[1],[2],[3],[1],[2],[3],[1],[2],[3]])    
+x_0=np.array([[1],[2],[3],[4],[5],[6],[1],[2],[3],[4],[5],[6],[0],[0],[0]])    
 #Anfangswertvektor (enthält Aktivität und alle hemodynamische Größen hintereinander, Reihenfolge: z, s, f, v, q),
 #bereits in gewünschter Matrixschreibweise
 
@@ -34,6 +34,8 @@ gamma=1
 tau=1
 alpha=1
 rho=1
+V0=0.02
+k=([7*rho,2,2*rho-0.2])
 N=3         #Netzwerkgroesse
 
 
@@ -44,8 +46,8 @@ const=C*u #C*u ist immer konstant, kann deshalb einfach uebergeben werden
 for i in range(len(D)):
     B=+D[i]*u[i]
     
-teta=list((A,B,const,kappa,gamma,tau,alpha,rho,N))    #Parameterset
-
+teta=list((A,B,const,kappa,gamma,tau,alpha,rho,N))    #Parameterset fuer DGLs
+teta_out=list((N,V0,k))                             #Parameterset fuer output y
 
     
 
@@ -67,14 +69,25 @@ def f(x,teta):       #Gibt die Zeitableitung x_dot wider
     x_dot=np.vstack((z_dot,s_dot,f_dot,v_dot,q_dot))               #Alles wird wieder zum Gesamtvektor hinzugefügt
     #print(x_dot)
     return x_dot      
+
+def output(x,teta_out):             #Hier wird der experimentell relevante Output y berechnet
     
+    v=np.vsplit(x,(3*N,4*N))[1]
+    q=np.vsplit(x,(4*N,5*N))[1]
+    
+    return teta_out[1]*(teta_out[2][0]*(1-q)+teta_out[2][1]*(1-q/v)+teta_out[2][2]*(1-v))
+    
+        
 
 
-z=RK.RK4_method(f,teta,z_0,dt,t0,T)
-#print(z[1,:],t)
+x=RK.RK4_method(f,teta,x_0,dt,t0,T)
+y=output(x,teta_out)
+
+#print(x,y)
+
 plt.figure()
-for i in range(len(z_0)):
-    plt.plot(t,np.squeeze(np.asarray(z[i,:])))      #Jede Zeile wird gegen die Zeit geplottet
+for i in range(N):
+    plt.plot(t,np.squeeze(np.asarray(y[i,:])))      #Jede Zeile des experimentellen Outputvektors wird gegen die Zeit geplottet
 
 plt.savefig("test")
 
