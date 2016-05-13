@@ -16,6 +16,7 @@ Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzw
   
 ### Dynamic Causal Modelling (DCM)
 * Grundlegende Informationen:
+  * [http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf](Friston, Harrison, Penny, Dynamic causal modelling; http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf)
   * *Bayesian estimation of dynamical systems: an application to fMRI* über [http://scholar.google.com](http://scholar.google.com)
   * [http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf](http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf)
 
