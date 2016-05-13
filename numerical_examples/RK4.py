@@ -13,24 +13,25 @@
 #==============================================================================
 
 import numpy as np
-import math
-def RK4_method(f,teta,z_0,dt,t0,T):  
-    #Input: Funktion, Parameterset, Anfangswert(array), Zeitschrittweite,Anfangszeit, Endzeit
+
+def RK4_method(f,teta,u,z,dt,m):  
+    #Input: Funktion, Parameterset, Anregungsmatrix, Outputmatrix (noch fast ungefuellt), Zeitschrittlaenge, Zeitintervallanzahl
    
-    z=z_0
    
         
-    for i in range(0,int(math.ceil((T-t0)/dt-1)),1):
+    for i in range(0,m,1):
         
-        z_aktuell=np.hsplit(z,(i,i+1))[1] #Schneidet den aktuellen Output-Vektor aus der Matrix heraus
+        z_aktuell=z[:,i] #Schneidet den aktuellen Output-Vektor aus der Matrix heraus
+        u_aktuell=u[:,i]
+       # print(z_aktuell)
         
+        k_1 = f(z_aktuell,teta,u_aktuell)                  #Mit dem aktuellen Outputvektor werden die k's ermittelt
+        k_2 = f(z_aktuell+ 0.5*dt*k_1,teta,u_aktuell)
+        k_3 = f(z_aktuell + 0.5*dt*k_2,teta,u_aktuell)
+        k_4 = f(z_aktuell + dt*k_3,teta,u_aktuell)
         
-        k_1 = f(z_aktuell,teta)                  #Mit dem aktuellen Outputvektor werden die k's ermittelt
-        k_2 = f(z_aktuell+ 0.5*dt*k_1,teta)
-        k_3 = f(z_aktuell + 0.5*dt*k_2,teta)
-        k_4 = f(z_aktuell + dt*k_3,teta)
+        z[:,i+1]=z[:,i]+ (dt/6.)*(k_1 + 2*k_2 + 2*k_3 + k_4)
         
-        z=np.column_stack((z,np.hsplit(z,(i,i+1))[1] + (dt/6.)*(k_1 + 2*k_2 + 2*k_3 + k_4))) 
         #Hier wird die der neue Outputvektor aus den k's ermittelt und direkt an die bestehende Matrix angefuegt als neue spalte
     
         
