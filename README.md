@@ -47,6 +47,6 @@ This software is free to use under the BSD license. See the [LICENSE](LICENSE.md
 
 ---
 
-<a name="note_1">1</a>: K.J. Friston et al. / NeuroImage 0 (2003) 000–000
-<a name="note_2">2</a>: [http://scholar.google.com](http://scholar.google.com)
-<a name="note_3">3</a>: Marta I. Garrido 
+<a name="note_1">1</a>: K.J. Friston et al. / NeuroImage 0 (2003) 000–000  
+<a name="note_2">2</a>: [http://scholar.google.com](http://scholar.google.com)  
+<a name="note_3">3</a>: Marta I. Garrido  
