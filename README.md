@@ -1,26 +1,24 @@
-# NiMoNa_DCM16
-Hier ist unser gemeinsames Repository. <- Dieser Text möchte geändert werden ;)
+# NiMoNa 2016 - Konnektivität im Gehirn
+Das Interdisziplinäre Praktikum **Nichtlineare Modellierung in den Naturwissenschaften** (*NiMoNa*) bietet die Möglichkeit sich mit Studierenden der Fachrichtungen Mathematik, Physik, Chemie und Biologie auszutauschen und anwendungsorientierte Fragestellungen im Bereich der nichtlinearen Modellierung zu bearbeiten. Im Folgenden wird das Thema **Konnektivität im Gehirn** (*Dynamic Casual Modelling* - **DCM**) behandelt.
 
 ---
 
-## Inhalt
-Hier findet sich eine kurze Erleuterung der verschiedenen Unterordner und generelle Informationen zu spezifischen Themen.
+## Inhalt dieses Repositories
 
 ### [Numerische Beispiele](numerical_examples)
-Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden.
+Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden: [numerical_examples](numerical_examples)
 
-**Enthalten sind:**  
-1. Euler-Verfahren  
-2. Runge-Kutta-Verfahren  
-  * 4. Ordnung (RK4)
-  
-### Dynamic Causal Modelling (DCM)
-* Grundlegende Informationen:
-  * [http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf](Friston, Harrison, Penny, Dynamic causal modelling; http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf)
-  * *Bayesian estimation of dynamical systems: an application to fMRI* über [http://scholar.google.com](http://scholar.google.com)
-  * [http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf](http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf)
+### Dynamic Causal Modelling (DCM) Simulationen
+  * [Paper: Dynamic causal modelling](http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf)<sup>[1](#note_1)</sup>
+  * *Bayesian estimation of dynamical systems: an application to fMRI*<sup>[2](#note_2)</sup>
+  * [Präsentation: Dynamic causal modelling](http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf)<sup>[3](#note_3)</sup>
 
-### Weitere Informationen und Quellen
+### [Einfache Python Beispiele](python_examples)
+Grundlegende Informationen und Beispiele zum Thema Python sind hier zusammengefasst: [python_examples](python_examples).
+
+---
+
+## Weiterführende Informationen
 * Einführungen in Git:
   * [http://rogerdudler.github.io/git-guide/](http://rogerdudler.github.io/git-guide/)
   * [http://try.github.io](http://try.github.io)
@@ -31,31 +29,6 @@ Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzw
   * [Client für Windows/Mac] (https://desktop.github.com/)
   * [Readme/Markdown Cheatsheet/Hilfeseite](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
   
----
-
-## [Einfache Python Beispiele](python_examples)
-Für weitere Informationen und Beispiele folge dem [Link](python_examples).
-
-```python
-#!/usr/bin/env python
-
-#==============================================================================
-#	python3_test.py
-#------------------------------------------------------------------------------
-# description    :This is a basic python script example with a file header
-# author         :l-althueser
-#
-# usage          :python python3_test.py
-# python_version :3.5.1 
-#
-# changes/notes  :20160425 :Added file header.
-#				 :20160426 :Added ability to print "Hello World!"
-#==============================================================================
-
-# The following line will be printed
-print("Hello World.")
-```
-
 ---
   
 ## Mitwirkende (In alphabetischer Reihenfolge)
@@ -71,3 +44,9 @@ Unterstützt durch: Christian Himpe
 
 ## License
 This software is free to use under the BSD license. See the [LICENSE](LICENSE.md) file for license text and copyright information.
+
+---
+
+<a name="note_1">1</a>: K.J. Friston et al. / NeuroImage 0 (2003) 000–000
+<a name="note_2">2</a>: [http://scholar.google.com](http://scholar.google.com)
+<a name="note_3">3</a>: Marta I. Garrido 
