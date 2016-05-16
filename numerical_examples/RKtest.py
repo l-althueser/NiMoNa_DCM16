@@ -20,12 +20,11 @@ dt=0.1
 t = np.arange(t0,T,dt) 
 
 def f(x):       #Gibt die Zeitableitung x_dot wider
-    
-    x_dot=x     #So muss x(t)=exp(t) herauskommen
-    
+	x_dot=x     #So muss x(t)=exp(t) herauskommen
     return x_dot
 
 z=RK.RK4_method(f,z_0,dt,t0,T)
+
 #print(z,t)
 plt.figure()
 for i in range(len(z_0)):

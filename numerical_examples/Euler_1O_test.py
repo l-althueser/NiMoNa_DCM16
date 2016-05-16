@@ -14,6 +14,14 @@
 
 import math
 
-# Explizites Euler-Verfahren 1. Ordnung
-print(Euler_1O(lambda x, y: math.cos(x), 0, 1, 1, 1000)) # <- Ausgabe sollte als Matrix erfolgen ..
+#Anfangswertvektor, bereits in gewünschter Matrixschreibweise
+t_0 = np.array([[0],[0]])
+y_0 = np.array([[0],[1]])
 
+# Explizites Euler-Verfahren 1. Ordnung
+y = Euler_1O(lambda x: math.cos(x), t_0, 1, y_0, 1000)
+
+#print(y,t)
+plt.figure()
+for i in range(len(y)):
+    plt.plot(t,y[i,:])      #Jede Zeile wird gegen die Zeit geplottet

@@ -19,19 +19,19 @@
 # y(t_n+1) = y_n+1 = y_n + h * f(t_n,y_n)
 
 
-def Euler_1O(f,t_0,t_k,y_0,n):
+def Euler_1O(f,t,t_k,y,n):
 	# f  : gegeben als y' = f(t,y)
 	# t_0: Startwert für t (initial value)
 	# t_k: Endwert für t (final value)
 	# y_0: Startwert für y mit y(t_0) = y_0
 	# n  : Anzahl der Schritte auf dem Interval [t_0, t_k]
 	# h  : Diskretisierungs-Schrittweite mit h > 0
-	# Gibt eine Matrix von angenommenden Werte zurück. (<- Das muss noch getan werden.)
+	# Gibt eine Matrix von angenommenden Werte zurück.
 
-    h = (t_k - t_0) / float(n)
-    t = t_0
-    y = y_0
+    h = (t_k - t[:,0]) / float(n)
+
     for i in range(n):			
-        y += h * f(t, y)
-        t += h
-    return y # <- hier sollte Matrix ausgegeben werden
+        y[:,i+1] = y[:,i] + h * f(t[:,i], y[:,i])
+        t[:,i+1] = t[:,i] + h
+		
+    return y # <- Ausgabe als Matrix
