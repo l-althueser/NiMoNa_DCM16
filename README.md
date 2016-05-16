@@ -8,7 +8,7 @@ Das Interdisziplinäre Praktikum **Nichtlineare Modellierung in den Naturwissens
 ### [Numerische Beispiele](numerical_examples)
 Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden: [numerical_examples](numerical_examples)
 
-### Dynamic Causal Modelling (DCM) Simulationen
+### [Dynamic Causal Modelling (DCM) Simulationen] (DCM_simulations)
   * [Paper: Dynamic causal modelling](http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf)<sup>[1](#note_1)</sup>
   * *Bayesian estimation of dynamical systems: an application to fMRI*<sup>[2](#note_2)</sup>
   * [Präsentation: Dynamic causal modelling](http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf)<sup>[3](#note_3)</sup>
