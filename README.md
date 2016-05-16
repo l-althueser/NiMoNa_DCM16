@@ -20,14 +20,13 @@ Grundlegende Informationen und Beispiele zum Thema Python sind hier zusammengefa
 
 ## Weiterführende Informationen
 * Einführungen in Git:
-  * [http://rogerdudler.github.io/git-guide/](http://rogerdudler.github.io/git-guide/)
-  * [http://try.github.io](http://try.github.io)
-  * [http://git-scm.com/docs/gittutorial](http://git-scm.com/docs/gittutorial)
-  * [http://www.ralfebert.de/tutorials/git/](http://www.ralfebert.de/tutorials/git/)
-  * [http://training.github.com/kit/downloads/github-git-cheat-sheet.pdf](http://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+  * [Interaktives Git Tutorial (Github)](http://try.github.io)  
+  * [git - the simple guide](http://rogerdudler.github.io/git-guide/)  
+  * [offizielles git Tutorial](http://git-scm.com/docs/gittutorial)  
+
 * GitHub:
-  * [Client für Windows/Mac] (https://desktop.github.com/)
-  * [Readme/Markdown Cheatsheet/Hilfeseite](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+  * [Client für Windows/Mac] (https://desktop.github.com/)  
+  * [Readme/Markdown Cheatsheet/Hilfeseite](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)  
   
 ---
   
