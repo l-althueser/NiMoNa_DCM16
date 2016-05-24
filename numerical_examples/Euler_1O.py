@@ -34,4 +34,4 @@ def Euler_1O(f,t,t_k,y,n):
         y[:,i+1] = y[:,i] + h * f(t[:,i], y[:,i])
         t[:,i+1] = t[:,i] + h
 		
-    return y # <- Ausgabe als Matrix
+    return y 
