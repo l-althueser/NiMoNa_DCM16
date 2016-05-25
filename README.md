@@ -10,7 +10,7 @@ Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzw
 
 ### [Dynamic Causal Modelling (DCM) Simulationen] (DCM_simulations)
   * [Paper: Dynamic causal modelling](http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf)<sup>[1](#note_1)</sup>
-  * *Bayesian estimation of dynamical systems: an application to fMRI*<sup>[2](#note_2)</sup>
+  * [Paper: Bayesian Estimation of Dynamical Systems: An Application to fMRI](http://www.sciencedirect.com/science/article/pii/S1053811901910444)<sup>[2](#note_2)</sup>
   * [Präsentation: Dynamic causal modelling](http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf)<sup>[3](#note_3)</sup>
 
 ### [Einfache Python Beispiele](python_examples)
