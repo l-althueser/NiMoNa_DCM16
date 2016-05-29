@@ -100,7 +100,9 @@ plt.plot(t,y[1,:],'g',label='Region 2')      #BOLD-Signal
 #Region 3:
 plt.plot(t,y[2,:],'b',label='Region 3')      #BOLD-Signal
 
-plt.legend()
+ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
+          fancybox=True, shadow=True, ncol=5)
+
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
@@ -153,7 +155,9 @@ plt.plot(t,x[2,:],'b',label='Region 3')     #Gehirnaktivität
 #plt.plot(t,x[8,:],'b',label='Region 3')     #Blutfluss 
 #plt.plot(t,x[11,:],'b',label='Region 3')    #Blutvolumen
 #plt.plot(t,x[14,:],'b',label='Region 3')    #Deoxyhemoglobingehalt
-plt.legend()
+
+ax6.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
+          fancybox=True, shadow=True, ncol=5)
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
@@ -203,7 +207,8 @@ plt.plot(t,ylin[1,:],'g',label='Region 2')      #BOLD-Signal
 #Region 3:
 plt.plot(t,ylin[2,:],'b',label='Region 3')      #BOLD-Signal
 
-plt.legend()
+ax3lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
+          fancybox=True, shadow=True, ncol=5)
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
@@ -243,7 +248,8 @@ plt.plot(t,xlin[1,:],'g',label='Region 2')     #Gehirnaktivität
 # Region 3:
 plt.plot(t,xlin[2,:],'b',label='Region 3')     #Gehirnaktivität
 
-plt.legend()
+ax6lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
+          fancybox=True, shadow=True, ncol=5)
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
