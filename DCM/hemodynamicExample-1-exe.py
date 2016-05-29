@@ -247,9 +247,10 @@ plt.legend()
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
-plt.show()
 
 f4.savefig('hemodynamicExample-1_linear_Aktivität.eps')
+
+plt.show()
 
 
 
