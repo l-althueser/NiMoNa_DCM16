@@ -5,7 +5,7 @@ Das Interdisziplinäre Praktikum **Nichtlineare Modellierung in den Naturwissens
 
 ## Inhalt dieses Repositories
 
-### [Dynamic Causal Modelling (DCM) Simulationen] (DCM_simulations)
+### [Dynamic Causal Modelling (DCM) Simulationen] (DCM)
 Die Implementierung der DCM Simulationen, wie in "[DCM](DCM)" erfolgt unter Zuhilfenahme folgender Arbeiten:
   * [Paper: Dynamic causal modelling](http://web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf)<sup>[1](#note_1)</sup>
   * [Paper: Bayesian Estimation of Dynamical Systems: An Application to fMRI](http://www.sciencedirect.com/science/article/pii/S1053811901910444)<sup>[2](#note_2)</sup>
@@ -48,5 +48,5 @@ This software is free to use under the BSD license. See the [LICENSE](LICENSE.md
 ---
 
 <a name="note_1">1</a>: K.J. Friston et al. / NeuroImage 0 (2003) 000–000  
-<a name="note_2">2</a>: K.J. Friston / NeuroImage (2002) 
-<a name="note_3">3</a>: Marta I. Garrido / Brainmapping (2009)
+<a name="note_2">2</a>: K.J. Friston / NeuroImage (2002)  
+<a name="note_3">3</a>: Marta I. Garrido / Brainmapping (2009)  
