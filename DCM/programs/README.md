@@ -1,23 +1,11 @@
-# Numerische Beispiele
+# Numerische Methoden (programs)
 Hier finden sich alle Implementierungen von numerischen Verfahren, die zu Testzwecken oder zur späteren Verwendung bereits erstellt wurden.
 
 ---
 
 ## Euler-Verfahren
 #### Zugehörige Dateien:
-* [Euler_1O.py](Euler_1O.py)  
-* [Euler_1O_test.py](Euler_1O_test.py)  
-
-#### Benutzung:
-**Mittels Testscript:**  
-```
-python Euler_1O_test.py
-```
-
-**Im eigenem Programm:**  
-```python
-Euler_1O(lambda x: math.cos(x), 0, 1, 1, 1000)
-```
+* [Euler.py](Euler.py)  
 
 ---
 
@@ -25,45 +13,21 @@ Euler_1O(lambda x: math.cos(x), 0, 1, 1, 1000)
 ### 4. Ordnung (RK4)
 #### Zugehörige Dateien:
 * [RK4.py](RK4.py)  
-* [RKtest.py](RKtest.py)  
-
-#### Benutzung:
-**Mittels Testscript:**  
-```
-python RKtest.py
-```
-
-**Im eigenem Programm:**  
-```python
-def f(x):       #Gibt die Zeitableitung x_dot wider 
-  x_dot=x       #So muss x(t)=exp(t) herauskommen 
-  return x_dot 
-
-z=RK4_method(f,z_0,dt,t0,T) 
-```
 
 ---
 
 ## Dynamic Causal Modelling
 ### Bilineares Modell
 #### Zugehörige Dateien:
-* [RK4.py](RK4.py)  
 * [bilinearModel.py](bilinearModel.py)  
-
-#### Benutzung:
-```
-python bilinearModel.py
-```
+* [Euler.py](Euler.py)  
+* [RK4.py](RK4.py)  
 
 ### Hermodynamisches Modell
 #### Zugehörige Dateien:
-* [RK4.py](RK4.py)  
 * [hermodynamischesModel.py](hermodynamischesModel.py)  
-
-#### Benutzung:
-```
-python hermodynamischesModel.py
-```
+* [Euler.py](Euler.py)  
+* [RK4.py](RK4.py)  
 
 ---
 
