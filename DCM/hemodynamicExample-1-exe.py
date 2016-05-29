@@ -39,11 +39,11 @@ C = np.array([[1, 0],[0, 0],[0, 0]])                        # äußerer Einfluss
 
 # äußerer Stimulus
 u = np.zeros((len(B), len(t)))             
-u[0,101:-200:200] = 10.         # Stimulus u1   
+u[0,101:-99:200] = 10.         # Stimulus u1   
 
 u[1,451:550] = 2.              # Stimulus u2 
 u[1,251:350] = 5.              # Stimulus u2
-u[1, 691:710] = 2.             # Stimulus u2
+u[1, 691:910] = 2.             # Stimulus u2
 
 # Anfangsbedingunden  
 x_0 = np.ones(15)
@@ -66,9 +66,8 @@ y = HM.BOLDsignal(x)                                    # Berechnung des BOLD-Si
 plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
 
 
-
 #-----------------------------------------------------------------------------------------------------------------
-# Plotten
+# Plotten Bilineares Modell
 
 #-------------------------- BOLD ------------------------------------
 f1 = plt.figure(1) 
@@ -105,6 +104,8 @@ plt.legend()
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
+
+f1.savefig('hemodynamicExample-1_bilinear_BOLD.eps')
 
 #-------------------------- Gehirnaktivität ------------------------------------
 f2 = plt.figure(2)
@@ -158,6 +159,8 @@ plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
 #plt.show()
 
+f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
+
 #--------------------------------------------------------------------- Lineares Modell zum Vergleich -----------------------------------------------
 # Änderung der Anfagsparameter B=0
 Blin = np.array([np.zeros((3,3))])
@@ -205,6 +208,8 @@ plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
 
+f3.savefig('hemodynamicExample-1_linear_BOLD.eps')
+
 #-------------------------- Gehirnaktivität ------------------------------------
 f4 = plt.figure(4)
 f4.suptitle('Lineares Modell', fontsize = 20)
@@ -244,7 +249,7 @@ plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
 plt.show()
 
-
+f4.savefig('hemodynamicExample-1_linear_Aktivität.eps')
 
 
 
