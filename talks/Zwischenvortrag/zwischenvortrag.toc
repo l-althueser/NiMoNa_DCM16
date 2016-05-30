@@ -1,0 +1,15 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Motivation und Ziel}{3}{0}{1}
+\beamer@sectionintoc {2}{Die Modelle}{3}{0}{2}
+\beamer@subsectionintoc {2}{1}{Lineares Modell}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Bilineraes Modell}{6}{0}{2}
+\beamer@subsubsectionintoc {2}{2}{1}{H\IeC {\"a}modynamisches Modell}{8}{0}{2}
+\beamer@sectionintoc {3}{Numerische Methoden}{11}{0}{3}
+\beamer@subsectionintoc {3}{1}{Euler-Verfahren}{11}{0}{3}
+\beamer@subsectionintoc {3}{2}{Runge-Kutta-Verfahren (4. Ordnung)}{12}{0}{3}
+\beamer@sectionintoc {4}{Theoretische Experimente}{13}{0}{4}
+\beamer@subsectionintoc {4}{1}{linear}{13}{0}{4}
+\beamer@subsectionintoc {4}{2}{bilinear}{14}{0}{4}
+\beamer@subsectionintoc {4}{3}{hemodynamisch}{15}{0}{4}
+\beamer@sectionintoc {5}{Literatur}{16}{0}{5}
