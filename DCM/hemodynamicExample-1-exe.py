@@ -136,25 +136,25 @@ plt.xticks(np.arange(10,110,10))
 ax6.tick_params(width = 1)
 
 # Region 1:
-plt.plot(t,x[0,:],'r',label='Region 1')     #Gehirnaktivität
+#plt.plot(t,x[0,:],'r',label='Region 1')     #Gehirnaktivität
 #plt.plot(t,x[3,:],'r',label='Region 1')     #Vasodilatorisches Signal
 #plt.plot(t,x[6,:],'r',label='Region 1')     #Blutfluss 
 #plt.plot(t,x[9,:],'r',label='Region 1')     #Blutvolumen
-#plt.plot(t,x[12,:],'r',label='Region 1')    #Deoxyhemoglobingehalt
+plt.plot(t,x[12,:],'r',label='Region 1')    #Deoxyhemoglobingehalt
 
 # Region 2:
-plt.plot(t,x[1,:],'g',label='Region 2')     #Gehirnaktivität
+#plt.plot(t,x[1,:],'g',label='Region 2')     #Gehirnaktivität
 #plt.plot(t,x[4,:],'g',label='Region 2')     #Vasodilatorisches Signal
 #plt.plot(t,x[7,:],'g',label='Region 2')     #Blutfluss
 #plt.plot(t,x[10,:],'g',label='Region 2')    #Blutvolumen
-#plt.plot(t,x[13,:],'g',label='Region 2')    #Deoxyhemoglobingehalt
+plt.plot(t,x[13,:],'g',label='Region 2')    #Deoxyhemoglobingehalt
 
 # Region 3:
-plt.plot(t,x[2,:],'b',label='Region 3')     #Gehirnaktivität
+#plt.plot(t,x[2,:],'b',label='Region 3')     #Gehirnaktivität
 #plt.plot(t,x[5,:],'b',label='Region 3')     #Vasodilatorisches Signal
 #plt.plot(t,x[8,:],'b',label='Region 3')     #Blutfluss 
 #plt.plot(t,x[11,:],'b',label='Region 3')    #Blutvolumen
-#plt.plot(t,x[14,:],'b',label='Region 3')    #Deoxyhemoglobingehalt
+plt.plot(t,x[14,:],'b',label='Region 3')    #Deoxyhemoglobingehalt
 
 ax6.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
@@ -163,7 +163,7 @@ plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
 #plt.show()
 
-f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
+#f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
 
 #--------------------------------------------------------------------- Lineares Modell zum Vergleich -----------------------------------------------
 # Änderung der Anfagsparameter B=0

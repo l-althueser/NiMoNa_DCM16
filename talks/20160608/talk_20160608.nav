@@ -1,0 +1,51 @@
+\beamer@endinputifotherversion {3.36pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\sectionentry {1}{Konnektivit\IeC {\"a}t im Gehirn}{3}{Konnektivit\IeC {\"a}t im Gehirn}{0}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Einleitung in DCM}}\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{Einleitung in DCM}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{4}{Modell}}\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{1}{4}{Bilineraes Modell}}
+\headcommand {\slideentry {1}{2}{1}{4/4}{Modell}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsubsectionentry {0}{1}{2}{2}{5}{Hemodynamisches Modell}}
+\headcommand {\slideentry {1}{2}{2}{5/5}{Modell}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\sectionentry {2}{Numerische Algorithmen}{6}{Numerische Algorithmen}{0}}
+\headcommand {\beamer@sectionpages {3}{5}}
+\headcommand {\beamer@subsectionpages {4}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{Euler-Verfahren}}\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\slideentry {2}{1}{1}{6/6}{Euler-Verfahren}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{7}{Runge-Kutta-Verfahren (4. Ordnung)}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {2}{2}{1}{7/7}{Runge-Kutta-Verfahren (4. Ordnung)}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\sectionentry {3}{DCM-Experimente}{8}{DCM-Experimente}{0}}
+\headcommand {\beamer@sectionpages {6}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{8}{linear}}\headcommand {\beamer@subsectionpages {8}{7}}
+\headcommand {\slideentry {3}{1}{1}{8/8}{linear}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{9}{bilinear}}\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\slideentry {3}{2}{1}{9/9}{bilinear}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{10}{hemodynamisch}}\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\slideentry {3}{3}{1}{10/10}{hemodynamisch}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\sectionentry {4}{Literatur}{11}{Literatur}{0}}
+\headcommand {\beamer@sectionpages {8}{10}}
+\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\slideentry {4}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {4}{0}{2}{12/13}{}{0}}
+\headcommand {\beamer@framepages {12}{13}}
+\headcommand {\beamer@partpages {1}{13}}
+\headcommand {\beamer@subsectionpages {11}{13}}
+\headcommand {\beamer@sectionpages {11}{13}}
+\headcommand {\beamer@documentpages {13}}
+\headcommand {\def \inserttotalframenumber {12}}
