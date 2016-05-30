@@ -9,7 +9,6 @@ Pythonversion:
 3.5.1     
 """
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -18,32 +17,34 @@ from programs import Euler as RK1
 from programs import hemodynamicModel as HM
 from programs import bilinearModel as BM
 
-
-
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
-T = 100.                         # Endzeit
-t0 = 0.                         # Anfangszeit
-dt = 0.1                        # Zeitschrittlaenge         
-t = np.arange(t0,T+dt,dt)       # Zeitarray
-
+T = 100.                     # Endzeit
+t0 = 0.                      # Anfangszeit
+dt = 0.1                     # Zeitschrittlaenge         
+t = np.arange(t0,T+dt,dt)    # Zeitarray
     
-A = np.array([[-1.,0.,0.],[0.3,-1,0.2],[0.6,0.,-1.]])        # Kopplung 
+A = np.array([[-1.,0.,0. ],
+			  [0.3,-1,0.2],
+			  [0.6,0.,-1.]]) # Kopplung 
 
-
-B1 = np.zeros((3,3))                                        #Induzierte Kopplung
-B2 = np.array([[0, 0, 0],[0, 0, 0.8],[0.1, 0, 0]])
-B = np.array([B1, B2])                                      #Zusammenfassen der ind. Kopplung in ein Array
+B1 = np.zeros((3,3))         # Induzierte Kopplung
+B2 = np.array([[0  , 0, 0  ],
+			   [0  , 0, 0.8],
+			   [0.1, 0, 0  ]])
+B = np.array([B1, B2])       # Zusammenfassen der ind. Kopplung in ein Array
           
-C = np.array([[1, 0],[0, 0],[0, 0]])                        # äußerer Einfluss auf Hirnaktivität
+C = np.array([[1, 0],
+			  [0, 0],
+			  [0, 0]])       # äußerer Einfluss auf Hirnaktivität
 
 # äußerer Stimulus
 u = np.zeros((len(B), len(t)))             
-u[0,101:-99:200] = 10.         # Stimulus u1   
+u[0,101:-99:200] = 10.       # Stimulus u1   
 
-u[1,451:550] = 2.              # Stimulus u2 
-u[1,251:350] = 5.              # Stimulus u2
-u[1, 691:910] = 2.             # Stimulus u2
+u[1,451:550] = 2.            # Stimulus u2 
+u[1,251:350] = 5.            # Stimulus u2
+u[1, 691:910] = 2.           # Stimulus u2
 
 # Anfangsbedingunden  
 x_0 = np.ones(15)
@@ -56,19 +57,14 @@ theta = np.array([A,B,C])
 # Simulation 
 #z_0 = np.array([0,0,0])
 #z = RK4.RK4(BM.bilinearModel,theta,u,z_0,t0,T,dt)
-
 x = RK4.RK4(HM.stateEquations,theta,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
 #x = RK1.Euler(HM.stateEquations,theta,u,x_0,t0,T,dt)   # Lösung mithilfe des expl. Euler-Verfahrens
-
 y = HM.BOLDsignal(x)                                    # Berechnung des BOLD-Signals
-
 
 plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
 
-
 #-----------------------------------------------------------------------------------------------------------------
 # Plotten Bilineares Modell
-
 #-------------------------- BOLD ------------------------------------
 f1 = plt.figure(1) 
 f1.suptitle('Bilineares Modell', fontsize = 20)
@@ -120,14 +116,12 @@ plt.setp(ax4.get_xticklabels(), visible=False)
 plt.ylabel('$u_1(t)$', fontsize = 16.)
 plt.title('Stimuli')
 
-
 ax5 = plt.subplot(312,sharex = ax4, sharey =ax4)
 ax5.tick_params(width = 1)
 plt.plot(t,u[1,:])
 ax5.set_ylim([0,np.max(u)+1])
 plt.setp(ax5.get_xticklabels(), visible=False)
 plt.ylabel('$u_2(t)$', fontsize = 16.)
-
 
 # Gehirnaktivität plotten
 ax6 = plt.subplot(313,sharex = ax4)
@@ -175,7 +169,6 @@ xlin = RK4.RK4(HM.stateEquations,thetalin,u,x_0,t0,T,dt)      # Lösung mithilfe
 ylin = HM.BOLDsignal(xlin)                                    # Berechnung des BOLD-Signals
 
 # Plotten
-
 #-------------------------- BOLD ------------------------------------
 f3 = plt.figure(3) 
 f3.suptitle('Lineares Modell', fontsize = 20)
@@ -226,14 +219,12 @@ plt.setp(ax4lin.get_xticklabels(), visible=False)
 plt.ylabel('$u_1(t)$', fontsize = 16.)
 plt.title('Stimuli')
 
-
 ax5lin = plt.subplot(312,sharex = ax4lin, sharey =ax4lin)
 ax5lin.tick_params(width = 1)
 plt.plot(t,u[1,:])
 ax5lin.set_ylim([0,np.max(u)+1])
 plt.setp(ax5lin.get_xticklabels(), visible=False)
 plt.ylabel('$u_2(t)$', fontsize = 16.)
-
 
 # Gehirnaktivität plotten
 ax6lin = plt.subplot(313,sharex = ax4lin)
