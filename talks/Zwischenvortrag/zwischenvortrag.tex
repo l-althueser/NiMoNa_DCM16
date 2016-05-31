@@ -96,35 +96,91 @@
 \end{frame}
 
 \section{Motivation und Ziel}
-\section{Die Modelle}
-\subsection{Lineares Modell}
-	\begin{frame}{Einleitung in DCM}
+	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odel}
 		\begin{columns}
 		\column[t]{6cm}
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-			\caption{Interaktion zwischen verschiedenen Hirnregionen.}
+			\\ Interaktion zwischen\\ verschiedenen Hirnregionen
 			\label{fig:brain_01}
 		\end{figure}
 		\column[t]{6cm}
-		Konektivität im Gehirn\\
-		Mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns\\
+		\begin{block}{\centering Konnektivität im Gehirn}
+			\centering
+			Über die Mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
+		\end{block}
 		\vspace{0.5cm}
-		Ziel: Austellen eines realistischen neuronalen Modells der interagierenden Gehirnregionen
+		\begin{exampleblock}{\centering Ziel}
+			 \centering
+			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller interagierenden Gehirnregionen.
+		\end{exampleblock}
 		\end{columns}
+		\vskip0pt plus 1filll
 	\end{frame}
 	
-	\begin{frame}
-		Rückschlüsse auf die Verschaltung von Hirnregionen zu ziehen und zu verstehen, wie diese von Veränderungen in der neuronalen Aktivität beeinflusst wird\\
-		Äquivalent der DCM ist die FMRT ...\\
-		%Frage von Lukas: DCM ist doch das Modell - fMRT die Methode um den Sauerstoffgehalt und damit die Aktivität sichtbar zu machen (äquivalten ist vielleicht nicht das richtige Wort)
+	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odel}
+		\begin{columns}
+			\column[t]{6cm}
+			\centering [Hier ein nettes Bild]
+			\column[t]{6cm}
+			\begin{exampleblock}{\centering Ziel}
+				 \centering
+				 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller interagierenden Gehirnregionen.
+			\end{exampleblock}
+		\end{columns}
 		\vfill
-		Messung der Veränderung vom Blutfluss - BOLD Signal
+		\begin{itemize}
+			\item Rückschlüsse auf die Verschaltung von Hirnregionen
+			\item Einfluss der Veränderungen in der neuronalen Aktivität
+		\end{itemize}
+		\vfill
+		\begin{center}
+			Datengrundlage des DCM sind funktionelle Magnetresonanztomographien.
+		\end{center}
 	\end{frame}
 	
-	\begin{frame}
-		in diesem Fall ist DCM ein ...
+\section{Die Modelle}
+\subsection{Lineares Modell}
+	\begin{frame}{Lineares Modell}
+		\begin{columns}
+			\column[t]{4cm}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
+				\\ Vernetzung von \\Hirnregionen
+				\label{fig:brain_02}
+			\end{figure}
+			\column[t]{8cm}
+			\begin{center}
+				$u$ Inputs $\rightarrow$ $z$ Outputs pro Hirnregion\\ 
+				\vspace{0.25cm}
+				\scalebox{.5}{
+					\begin{minipage}{\textwidth}
+					\begin{block}{Inputs}
+						\begin{itemize}
+						\item direkten Input: Veränderung des neuronalen Zustands
+						\item latenten Input: Veränderung der Vernetzung
+						\end{itemize}
+					\end{block}
+					\end{minipage}
+					\hfill
+					\begin{minipage}{\textwidth}
+					\begin{block}{Outputs}
+						\begin{itemize}
+						\item neuronale Aktivität in der Hirnregion
+						\item ...
+						\end{itemize}
+					\end{block}
+					\end{minipage}
+				}\\
+				\vspace{0.5cm}
+				$\dot{z}=A+Cu$ 
+			\end{center}
+		\end{columns}	
+		\vspace{0.5cm}
+		{\small Matrix $A$: Konnektivitätsmatrix - Verschaltung der Hirnregionen} \\
+		{\small Matrix $C$: Einfluss der Inputs auf die neuronale Aktivität einer Hirnregion}
 	\end{frame}
 	
 \subsection{Bilineraes Modell}
