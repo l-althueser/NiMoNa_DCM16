@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 """
 @author: Timo
 
 Beschreibung:
-Simulation eines Netzwerkes bestehend aus 3 Regionen. 
+Simulation eines Netzwerkes bestehend aus 2 Regionen. 
 Grafik folgt.
 
 Pythonversion:
@@ -24,18 +26,15 @@ t0 = 0.                      # Anfangszeit
 dt = 0.1                     # Zeitschrittlaenge         
 t = np.arange(t0,T+dt,dt)    # Zeitarray
     
-A = np.array([[-1.,0.,0. ],
-			  [0.3,-1,0.2],
-			  [0.6,0.,-1.]]) # Kopplung 
+A = np.array([[-1.,0.],
+			  [0.5,-1]]) # Kopplung 
 
-B1 = np.zeros((3,3))         # Induzierte Kopplung
-B2 = np.array([[0  , 0, 0  ],
-			   [0  , 0, 0.8],
-			   [0.1, 0, 0  ]])
+B1 = np.zeros((2,2))         # Induzierte Kopplung
+B2 = np.array([[0  , 0],
+			   [1. , 0]])
 B = np.array([B1, B2])       # Zusammenfassen der ind. Kopplung in ein Array
           
 C = np.array([[1, 0],
-			  [0, 0],
 			  [0, 0]])       # äußerer Einfluss auf Hirnaktivität
 
 # äußerer Stimulus
@@ -47,11 +46,12 @@ u[1,251:350] = 5.            # Stimulus u2
 u[1, 691:910] = 2.           # Stimulus u2
 
 # Anfangsbedingunden  
-x_0 = np.ones(15)
-x_0[0:6] = 0.
+x_0 = np.ones(10)
+x_0[0:4] = 0.
 
 # Zusammenfassen der Parameter für das "hemodynamicModel"
 theta = list([A,B,C])
+
 
 #-----------------------------------------------------------------------------------------------------------------
 # Simulation 
@@ -94,7 +94,7 @@ plt.plot(t,y[0,:],'r',label='Region 1')      #BOLD-Signal
 # Region 2:
 plt.plot(t,y[1,:],'g',label='Region 2')      #BOLD-Signal
 #Region 3:
-plt.plot(t,y[2,:],'b',label='Region 3')      #BOLD-Signal
+#plt.plot(t,y[2,:],'b',label='Region 3')      #BOLD-Signal
 
 ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
@@ -103,7 +103,7 @@ plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
 
-f1.savefig('hemodynamicExample-1_bilinear_BOLD.eps')
+#f1.savefig('hemodynamicExample-1_bilinear_BOLD.eps')
 
 #-------------------------- Gehirnaktivität ------------------------------------
 f2 = plt.figure(2)
@@ -144,7 +144,7 @@ plt.plot(t,x[1,:],'g',label='Region 2')     #Gehirnaktivität
 #plt.plot(t,x[13,:],'g',label='Region 2')    #Deoxyhemoglobingehalt
 
 # Region 3:
-plt.plot(t,x[2,:],'b',label='Region 3')     #Gehirnaktivität
+#plt.plot(t,x[2,:],'b',label='Region 3')     #Gehirnaktivität
 #plt.plot(t,x[5,:],'b',label='Region 3')     #Vasodilatorisches Signal
 #plt.plot(t,x[8,:],'b',label='Region 3')     #Blutfluss 
 #plt.plot(t,x[11,:],'b',label='Region 3')    #Blutvolumen
@@ -157,11 +157,11 @@ plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
 #plt.show()
 
-f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
+#f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
 
 #--------------------------------------------------------------------- Lineares Modell zum Vergleich -----------------------------------------------
 # Änderung der Anfagsparameter B=0
-Blin = np.array([np.zeros((3,3))])
+Blin = np.array([np.zeros((2,2))])
 thetalin = list([A,Blin,C])
 
 #Simulation
@@ -198,7 +198,7 @@ plt.plot(t,ylin[0,:],'r',label='Region 1')      #BOLD-Signal
 # Region 2:
 plt.plot(t,ylin[1,:],'g',label='Region 2')      #BOLD-Signal
 #Region 3:
-plt.plot(t,ylin[2,:],'b',label='Region 3')      #BOLD-Signal
+#plt.plot(t,ylin[2,:],'b',label='Region 3')      #BOLD-Signal
 
 ax3lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
@@ -206,7 +206,7 @@ plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
 
-f3.savefig('hemodynamicExample-1_linear_BOLD.eps')
+#f3.savefig('hemodynamicExample-1_linear_BOLD.eps')
 
 #-------------------------- Gehirnaktivität ------------------------------------
 f4 = plt.figure(4)
@@ -237,7 +237,7 @@ plt.plot(t,xlin[0,:],'r',label='Region 1')     #Gehirnaktivität
 # Region 2:
 plt.plot(t,xlin[1,:],'g',label='Region 2')     #Gehirnaktivität
 # Region 3:
-plt.plot(t,xlin[2,:],'b',label='Region 3')     #Gehirnaktivität
+#plt.plot(t,xlin[2,:],'b',label='Region 3')     #Gehirnaktivität
 
 ax6lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
@@ -245,7 +245,7 @@ plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
 
-f4.savefig('hemodynamicExample-1_linear_Aktivität.eps')
+#f4.savefig('hemodynamicExample-1_linear_Aktivität.eps')
 
 plt.show()
 
