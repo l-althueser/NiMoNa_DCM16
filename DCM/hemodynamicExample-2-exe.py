@@ -21,7 +21,7 @@ from programs import bilinearModel as BM
 
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
-T = 100.                     # Endzeit
+T = 90.                     # Endzeit
 t0 = 0.                      # Anfangszeit
 dt = 0.1                     # Zeitschrittlaenge         
 t = np.arange(t0,T+dt,dt)    # Zeitarray
@@ -31,7 +31,7 @@ A = np.array([[-1.,0.],
 
 B1 = np.zeros((2,2))         # Induzierte Kopplung
 B2 = np.array([[0  , 0],
-			   [1. , 0]])
+			   [0.8 , 0]])
 B = np.array([B1, B2])       # Zusammenfassen der ind. Kopplung in ein Array
           
 C = np.array([[1, 0],
@@ -39,11 +39,11 @@ C = np.array([[1, 0],
 
 # äußerer Stimulus
 u = np.zeros((len(B), len(t)))             
-u[0,101:-99:200] = 10.       # Stimulus u1   
+u[0,101:-199:200] = 10.       # Stimulus u1   
 
-u[1,451:550] = 2.            # Stimulus u2 
-u[1,251:350] = 5.            # Stimulus u2
-u[1, 691:910] = 2.           # Stimulus u2
+u[1,251:350] = 2.            # Stimulus u2 
+u[1,451:550] = 5.            # Stimulus u2
+u[1,700:705] = 5.            # Stimulus u2
 
 # Anfangsbedingunden  
 x_0 = np.ones(10)
@@ -54,80 +54,55 @@ theta = list([A,B,C])
 
 
 #-----------------------------------------------------------------------------------------------------------------
-# Simulation 
+# Simulation
+
+# ------------- Bilinear 
 #z_0 = np.array([0,0,0])
 #z = RK4.RK4(BM.bilinearModel,theta,u,z_0,t0,T,dt)
 x = RK4.RK4(HM.stateEquations,theta,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
 #x = RK1.Euler(HM.stateEquations,theta,u,x_0,t0,T,dt)   # Lösung mithilfe des expl. Euler-Verfahrens
 y = HM.BOLDsignal(x)                                    # Berechnung des BOLD-Signals
 
-plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
+# ------------- Linear 
+# Änderung der Anfagsparameter B=0
+Blin = np.array([np.zeros((2,2))])
+thetalin = list([A,Blin,C])
+
+#Simulation
+xlin = RK4.RK4(HM.stateEquations,thetalin,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
+ylin = HM.BOLDsignal(xlin)                                    # Berechnung des BOLD-Signals
+
 
 #-----------------------------------------------------------------------------------------------------------------
-# Plotten Bilineares Modell
-#-------------------------- BOLD ------------------------------------
-f1 = plt.figure(1) 
-f1.suptitle('Bilineares Modell', fontsize = 20)
+# Plotten 
+plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
+
+plt.cla() 
+f1 =plt.figure(1)
+f1.suptitle('DCM - Simulation', fontsize = 20)
 # Stimulus 
-ax1 = plt.subplot(311)
+ax1 = plt.subplot(411)
 ax1.tick_params(width = 1)
-plt.plot(t,u[0,:])
+plt.xticks(np.arange(10,100,10))
+plt.plot(t,u[0,:],'b')
 plt.setp(ax1.get_xticklabels(), visible=False)
 plt.ylabel('$u_1(t)$', fontsize = 16.)
 plt.title('Stimuli')
 
-ax2 = plt.subplot(312,sharex = ax1, sharey =ax1)
+ax2 = plt.subplot(412,sharex = ax1, sharey =ax1)
 ax2.tick_params(width = 1)
-plt.plot(t,u[1,:])
+plt.plot(t,u[1,:],'b')
 ax2.set_ylim([0,np.max(u)+1])
 plt.setp(ax2.get_xticklabels(), visible=False)
 plt.ylabel('$u_2(t)$', fontsize = 16.)
 
-# Signal Plotten
-ax3 = plt.subplot(313,sharex = ax1)
-plt.setp(ax3.get_xticklabels(), fontsize = 14.)
-plt.xticks(np.arange(10,110,10))
-ax3.tick_params(width = 1)
-
-# Region 1:
-plt.plot(t,y[0,:],'r',label='Region 1')      #BOLD-Signal
-# Region 2:
-plt.plot(t,y[1,:],'g',label='Region 2')      #BOLD-Signal
-#Region 3:
-#plt.plot(t,y[2,:],'b',label='Region 3')      #BOLD-Signal
-
-ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
-          fancybox=True, shadow=True, ncol=5)
-
-plt.xlabel('Zeit t', fontsize = 14.)
-plt.ylabel('$y(t)$', fontsize = 16.)
-plt.title('BOLD-Signal nach Region')
-
-#f1.savefig('hemodynamicExample-1_bilinear_BOLD.eps')
-
-#-------------------------- Gehirnaktivität ------------------------------------
-f2 = plt.figure(2)
-f2.suptitle('Bilineares Modell', fontsize = 20)
-# Stimulus plotten
-ax4 = plt.subplot(311)
-ax4.tick_params(width = 1)
-plt.plot(t,u[0,:])
-plt.setp(ax4.get_xticklabels(), visible=False)
-plt.ylabel('$u_1(t)$', fontsize = 16.)
-plt.title('Stimuli')
-
-ax5 = plt.subplot(312,sharex = ax4, sharey =ax4)
-ax5.tick_params(width = 1)
-plt.plot(t,u[1,:])
-ax5.set_ylim([0,np.max(u)+1])
-plt.setp(ax5.get_xticklabels(), visible=False)
-plt.ylabel('$u_2(t)$', fontsize = 16.)
-
 # Gehirnaktivität plotten
-ax6 = plt.subplot(313,sharex = ax4)
-plt.setp(ax6.get_xticklabels(), fontsize = 14.)
-plt.xticks(np.arange(10,110,10))
-ax6.tick_params(width = 1)
+ax3 = plt.subplot(413,sharex = ax1)
+plt.setp(ax3.get_xticklabels(), fontsize = 14., visible=False)
+plt.ylabel('$z(t)$', fontsize = 16.)
+ax3.tick_params(width = 1)
+ax3.set_ylim([0,2])
+plt.yticks(np.arange(0,2.5,0.5))
 
 # Region 1:
 plt.plot(t,x[0,:],'r',label='Region 1')     #Gehirnaktivität
@@ -137,117 +112,37 @@ plt.plot(t,x[0,:],'r',label='Region 1')     #Gehirnaktivität
 #plt.plot(t,x[12,:],'r',label='Region 1')    #Deoxyhemoglobingehalt
 
 # Region 2:
+plt.plot(t,xlin[1,:],'k',label='Region 2 (lineares Modell)')     #Gehirnaktivität im linearen Modell
 plt.plot(t,x[1,:],'g',label='Region 2')     #Gehirnaktivität
 #plt.plot(t,x[4,:],'g',label='Region 2')     #Vasodilatorisches Signal
 #plt.plot(t,x[7,:],'g',label='Region 2')     #Blutfluss
 #plt.plot(t,x[10,:],'g',label='Region 2')    #Blutvolumen
 #plt.plot(t,x[13,:],'g',label='Region 2')    #Deoxyhemoglobingehalt
 
-# Region 3:
-#plt.plot(t,x[2,:],'b',label='Region 3')     #Gehirnaktivität
-#plt.plot(t,x[5,:],'b',label='Region 3')     #Vasodilatorisches Signal
-#plt.plot(t,x[8,:],'b',label='Region 3')     #Blutfluss 
-#plt.plot(t,x[11,:],'b',label='Region 3')    #Blutvolumen
-#plt.plot(t,x[14,:],'b',label='Region 3')    #Deoxyhemoglobingehalt
-
-ax6.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
-          fancybox=True, shadow=True, ncol=5)
-plt.xlabel('Zeit t', fontsize = 14.)
-plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivität nach Region')
-#plt.show()
-
-#f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
-
-#--------------------------------------------------------------------- Lineares Modell zum Vergleich -----------------------------------------------
-# Änderung der Anfagsparameter B=0
-Blin = np.array([np.zeros((2,2))])
-thetalin = list([A,Blin,C])
-
-#Simulation
-xlin = RK4.RK4(HM.stateEquations,thetalin,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
-ylin = HM.BOLDsignal(xlin)                                    # Berechnung des BOLD-Signals
-
-# Plotten
-#-------------------------- BOLD ------------------------------------
-f3 = plt.figure(3) 
-f3.suptitle('Lineares Modell', fontsize = 20)
-# Stimulus 
-ax1lin = plt.subplot(311)
-ax1lin.tick_params(width = 1)
-plt.plot(t,u[0,:])
-plt.setp(ax1lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_1(t)$', fontsize = 16.)
-plt.title('Stimuli')
-
-ax2lin = plt.subplot(312,sharex = ax1lin, sharey =ax1lin)
-ax2lin.tick_params(width = 1)
-plt.plot(t,u[1,:])
-ax2lin.set_ylim([0,np.max(u)+1])
-plt.setp(ax2lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_2(t)$', fontsize = 16.)
 
 # Signal Plotten
-ax3lin = plt.subplot(313,sharex = ax1lin)
-plt.setp(ax3lin.get_xticklabels(), fontsize = 14.)
-plt.xticks(np.arange(10,110,10))
-ax3lin.tick_params(width = 1)
+ax4 = plt.subplot(414,sharex = ax1)
+plt.setp(ax4.get_xticklabels(), fontsize = 14.)
+ax4.tick_params(width = 1)
+ax4.set_ylim([-0.04,0.06])
+plt.yticks(np.arange(-0.04,0.08,0.02))
 
 # Region 1:
-plt.plot(t,ylin[0,:],'r',label='Region 1')      #BOLD-Signal
+plt.plot(t,y[0,:],'r',label='Region 1')      #BOLD-Signal
 # Region 2:
-plt.plot(t,ylin[1,:],'g',label='Region 2')      #BOLD-Signal
-#Region 3:
-#plt.plot(t,ylin[2,:],'b',label='Region 3')      #BOLD-Signal
+plt.plot(t,ylin[1,:],'k',label='Region 2 (lineares Modell)')     #BOLD-Signal im linearen Modell
+plt.plot(t,y[1,:],'g',label='Region 2')      #BOLD-Signal
 
-ax3lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
+ax4.legend(loc='upper center', bbox_to_anchor=(0.5, -0.25),
           fancybox=True, shadow=True, ncol=5)
+
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
 
-#f3.savefig('hemodynamicExample-1_linear_BOLD.eps')
+#f1.savefig('hemodynamicExample-2-stimulus.eps')
 
-#-------------------------- Gehirnaktivität ------------------------------------
-f4 = plt.figure(4)
-f4.suptitle('Lineares Modell', fontsize = 20)
-# Stimulus plotten
-ax4lin = plt.subplot(311)
-ax4lin.tick_params(width = 1)
-plt.plot(t,u[0,:])
-plt.setp(ax4lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_1(t)$', fontsize = 16.)
-plt.title('Stimuli')
-
-ax5lin = plt.subplot(312,sharex = ax4lin, sharey =ax4lin)
-ax5lin.tick_params(width = 1)
-plt.plot(t,u[1,:])
-ax5lin.set_ylim([0,np.max(u)+1])
-plt.setp(ax5lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_2(t)$', fontsize = 16.)
-
-# Gehirnaktivität plotten
-ax6lin = plt.subplot(313,sharex = ax4lin)
-plt.setp(ax6lin.get_xticklabels(), fontsize = 14.)
-plt.xticks(np.arange(10,110,10))
-ax6lin.tick_params(width = 1)
-
-# Region 1:
-plt.plot(t,xlin[0,:],'r',label='Region 1')     #Gehirnaktivität
-# Region 2:
-plt.plot(t,xlin[1,:],'g',label='Region 2')     #Gehirnaktivität
-# Region 3:
-#plt.plot(t,xlin[2,:],'b',label='Region 3')     #Gehirnaktivität
-
-ax6lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
-          fancybox=True, shadow=True, ncol=5)
-plt.xlabel('Zeit t', fontsize = 14.)
-plt.ylabel('$z(t)$', fontsize = 16.)
-plt.title('Gehirnaktivität nach Region')
-
-#f4.savefig('hemodynamicExample-1_linear_Aktivität.eps')
-
-plt.show()
 
 
 
