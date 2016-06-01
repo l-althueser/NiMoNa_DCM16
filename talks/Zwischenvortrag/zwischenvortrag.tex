@@ -185,49 +185,51 @@
 	
 \subsection{Bilineraes Modell}
 	\begin{frame}{Bilineares Modell}
-		Gehirn als nicht-lineares, deterministisches, dynamisches System 
-		\begin{figure}[H]
-			\centering
-			\label{fig: bilinearesModell}
-			\includegraphics[scale=0.4]{res/bilinearesModell_bunt.eps}
-			\caption{Bilineares Modell der Netzwerkgröße 3}
-		\end{figure}		
-			
-		\textbf{Annahme:}
-		\begin{itemize}
-			\item direkter Einfluss: Eingangssignal $ u_1 $ $ \rightarrow $ Veränderung von Zustandsvariablen (z.B. neuronaler Aktivität)
-			\item indirekter Einfluss: Eingangssignal $ u_2 $ $ \rightarrow $ Veränderung der eff. Konnektivität
-		\end{itemize}
-			
-	\end{frame}
-	
-	\begin{frame}{}
-		\[\dot{z}=(A+\sum_{j}u_jB^j)z+Cu\]
-		  \[
-		 A=\left(\begin{array}{ccc} 
-		  a_{11} &  a_{12} & a_{13} \\a_{21} &  a_{22} & a_{23} \\a_{31} &  a_{32} & a_{33}
-		  \end{array}\right) 
-		  \]
-		  \[
-		  B=\left(\begin{array}{ccc} 
-		  b_{11} &  b_{12} & b_{13} \\b_{21} &  b_{22} & b_{23} \\b_{31} &  b_{32} & b_{33}
-		  \end{array}\right) 
-		  \]
-		  \[
-		  C=\left(\begin{array}{cc} 
-		  c_{11} &  c_{12} \\c_{21} &  c_{22} \\c_{31} &  c_{32} 
-		  \end{array}\right) 
-		  \]
-	\end{frame}
+			\begin{columns}
+				\column[t]{5cm}
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.6\linewidth]{res/bilinearesModell_klein.eps}
+					\\Vernetzung von 3 Hirnregionen
+					\label{fig: bilinearesModel}
+				\end{figure}
+				\column[t]{8cm}
+				\begin{center}
+					\scalebox{.5}{
+						\begin{minipage}{\textwidth}
+							\begin{block}{Modell}
+								\begin{itemize}
+									\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
+									\item Aktivität durch vorgegebenes Eingangssignal bestimmt
+								\end{itemize}
+							\end{block}
+						\end{minipage}
+					}\\
+					\vspace{0.20cm}
+					\begin{equation*}
+						\begin{split}
+							\dot{z}=(A+\sum_{j}u_jB^j)z+Cu \\
+							=\Bigg\{\left(\begin{array}{ccc} a_{11} &  a_{12} & a_{13} \\a_{21} &  a_{22} & a_{23} \\a_{31} &  a_{32} & a_{33} \end{array}\right)\\+u_2\left(\begin{array}{ccc} 
+							0 &  0 & 0 \\0 &  0 & b^{(2)}_{23} \\b^{(2)}_{31} &  0 & 0 \end{array}\right)\Bigg\}z\\+\left(\begin{array}{cc} c_{11} &  c_{12} \\c_{21} &  c_{22} \\c_{31} &  c_{32} \end{array}\right) \left(\begin{array}{c} u_1 \\u_2 \end{array}\right)
+						\end{split}
+					\end{equation*}
+				\end{center}
+			\end{columns}	
+			\vspace{0.0cm}
+			{\small Matrix $B$: Einfluss der Inputs auf die Verbindungen zwischen den Hirnregionen}
+		\end{frame}
 	
 \subsubsection{Hämodynamisches Modell}
 \begin{frame}{Vergleichbarkeit}
 Bilineare Modell $\Rightarrow$ Gehirnaktivitäten $z_i(t)$\\~\\
+\begin{figure}
+	{\includegraphics[width=0.8\linewidth]{res/Modelluebersicht_klein.eps}}
+\end{figure}
 \pause
 Experiment (funktionelle MRT)$\Rightarrow$ BOLD-Signal/Kontrast $y_i(t)$\\
 \hspace{3cm} $\approx$ Sauerstoffgehalt der roten Blutkörperchen 
 \begin{figure}
-{\includegraphics[width=4.4cm]{res/bold_signal.jpg}}
+{\includegraphics[width=8cm]{res/bold_signal.jpg}}
 \end{figure}
 \end{frame}
 
