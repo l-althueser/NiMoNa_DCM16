@@ -9,7 +9,7 @@
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
+\usepackage{lmodern}
 % --- Paket um Grafiken im Dokument einbetten zu koennen
 \usepackage{graphicx}
 \usepackage{caption}
@@ -179,8 +179,10 @@
 			\end{center}
 		\end{columns}	
 		\vspace{0.5cm}
-		{\small Matrix $A$: Konnektivitätsmatrix - Verschaltung der Hirnregionen} \\
-		{\small Matrix $C$: Einfluss der Inputs auf die neuronale Aktivität einer Hirnregion}
+		\begin{small}
+		Matrix $A$: Konnektivitätsmatrix - Verschaltung der Hirnregionen \\
+		Matrix $C$: Einfluss der Inputs auf die neuronale Aktivität einer Hirnregion
+\end{small}		 
 	\end{frame}
 	
 \subsection{Bilineraes Modell}
