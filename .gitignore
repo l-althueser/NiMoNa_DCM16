@@ -107,3 +107,13 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+*.aux
+
+*.aux
+
+*.nav
+
+*.out
+
+*.toc
