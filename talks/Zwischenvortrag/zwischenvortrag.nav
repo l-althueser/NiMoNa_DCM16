@@ -33,21 +33,19 @@
 \headcommand {\beamer@subsectionentry {0}{3}{2}{11}{Runge-Kutta-Verfahren (4. Ordnung)}}\headcommand {\beamer@subsectionpages {10}{10}}
 \headcommand {\slideentry {3}{2}{1}{11/11}{Runge-Kutta-Verfahren (4. Ordnung)}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\sectionentry {4}{Theoretische Experimente}{12}{Theoretische Experimente}{0}}
+\headcommand {\sectionentry {4}{Numerische Simulation}{12}{Numerische Simulation}{0}}
 \headcommand {\beamer@sectionpages {10}{11}}
 \headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{12}{linear}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\slideentry {4}{1}{1}{12/12}{linear}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{12}{2-Regionen-System}}\headcommand {\beamer@subsectionpages {12}{11}}
+\headcommand {\slideentry {4}{1}{1}{12/12}{2-Regionen-System}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{13}{bilinear}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {4}{2}{1}{13/13}{bilinear}{0}}
+\headcommand {\slideentry {4}{1}{2}{13/13}{2-Regionen-System}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@subsectionentry {0}{4}{3}{14}{hemodynamisch}}\headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\slideentry {4}{3}{1}{14/14}{hemodynamisch}{0}}
+\headcommand {\slideentry {4}{1}{3}{14/14}{2-Regionen-System}{0}}
 \headcommand {\beamer@framepages {14}{14}}
 \headcommand {\sectionentry {5}{Literatur}{15}{Literatur}{0}}
 \headcommand {\beamer@sectionpages {12}{14}}
-\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@subsectionpages {12}{14}}
 \headcommand {\slideentry {5}{0}{1}{15/15}{}{0}}
 \headcommand {\beamer@framepages {15}{15}}
 \headcommand {\slideentry {5}{0}{2}{16/17}{}{0}}
