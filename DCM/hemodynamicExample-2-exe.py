@@ -40,6 +40,7 @@ C = np.array([[1, 0],
 # äußerer Stimulus
 u = np.zeros((len(B), len(t)))             
 u[0,101:-199:200] = 10.       # Stimulus u1   
+#u[0,101:200] = 2.       # Stimulus u1
 
 u[1,251:350] = 2.            # Stimulus u2 
 u[1,451:550] = 5.            # Stimulus u2
