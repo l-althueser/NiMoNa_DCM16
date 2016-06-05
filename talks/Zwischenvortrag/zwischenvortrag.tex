@@ -90,7 +90,7 @@
 
 \begin{frame}{Überblick}
 	\tikz[remember picture,overlay]
-		  \node at ([xshift=-2.5cm,yshift=-4.75cm]current page.north east)
+		  \node at ([xshift=-2.8cm,yshift=-5cm]current page.north east)
 		  {\includegraphics[height=7cm,angle=-7.5,keepaspectratio]{res/toc_2.png}};
 	  \tableofcontents
 \end{frame}
@@ -442,23 +442,46 @@ BOLD-Signal (fMRT):\\ $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 		\end{align*}
 	\end{frame}
 	\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
+		\centering
 		\begin{figure}
-			{\includegraphics[width=0.83\linewidth ]{res/hemodynamicExample-2-stimulus.eps}}
+			\vspace*{-0.52cm}
+			\includegraphics[width=0.98\linewidth ]{res/hemodynamicExample-2-stimulus.eps}
 		\end{figure}
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[at=(current page.center), xshift=4cm, yshift=3.5cm]{\includegraphics[width=0.35\linewidth ]
+				{res/bilinearesModel_bunt_lin_werte.eps}};
+		\end{tikzpicture}
 		\vskip0pt plus 1filll
 	\end{frame}
 	\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
 		\begin{figure}
-			{\includegraphics[width=0.83\linewidth]{res/hemodynamicExample-2-linear.eps}}
+			\vspace*{-0.52cm}
+			{\includegraphics[width=0.98\linewidth]{res/hemodynamicExample-2-linear.eps}}
 		\end{figure}
-		\vskip0pt plus 1filll
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[at=(current page.center), xshift=4cm, yshift=3.5cm] {\includegraphics[width=0.35\linewidth ]
+				{res/bilinearesModel_bunt_lin_werte.eps}};
+		\end{tikzpicture}
+		%\vskip0pt plus 1filll
 	\end{frame}
 	\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
 		\begin{figure}
-			{\includegraphics[width=0.83\linewidth ]{res/hemodynamicExample-2-bilinear.eps}}
+			\vspace*{-0.52cm}
+			{\includegraphics[width=0.98\linewidth ]{res/hemodynamicExample-2-bilinear.eps}}
 		\end{figure}
-		\vskip0pt plus 1filll
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[at=(current page.center), xshift=4cm, yshift=3.5cm]{\includegraphics[width=0.35\linewidth ]
+				{res/bilinearesModel_bunt_lin_werte.eps}};
+		\end{tikzpicture}
+		%\vskip0pt plus 1filll
 	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ende
+\begin{frame}
+\centering
+\huge Vielen Dank für die Aufmerksamkeit!
+\end{frame}
+
 
 \section{Literatur}
 	\begin{frame}{Literatur}
@@ -470,23 +493,23 @@ BOLD-Signal (fMRT):\\ $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 
 
 
-\begin{frame}
-	\frametitle{Designfeatures}
-	\begin{block}{Hervorhebungen}
-	 \textbf{Wenn man Dinge hervorheben möchte nutzt man entweder Fettdruck,} \textit{ kursive Schrift} \alert{ oder das Schlüsselwort "alert"}. Auch "itemize"-Umgebungen werden von der Stilvorlage überschrieben:
-	\end{block}
-	\pause
-	\begin{itemize}
-	 \item So wird sichergestellt,
-	 \item dass alle Elemente der Präsentation 
-	 \item dieselbe Farbe nutzen.
-	\end{itemize}
-	\begin{alertblock}{Achtung!}
-	 Hier kommt Rot ins Spiel!	
-	\end{alertblock}
-	\begin{exampleblock}{Beispiel}
-	 Hier kommt Grün ins Spiel!
-	\end{exampleblock}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Designfeatures}
+%	\begin{block}{Hervorhebungen}
+%	 \textbf{Wenn man Dinge hervorheben möchte nutzt man entweder Fettdruck,} \textit{ kursive Schrift} \alert{ oder das Schlüsselwort "alert"}. Auch "itemize"-Umgebungen werden von der Stilvorlage überschrieben:
+%	\end{block}
+%	\pause
+%	\begin{itemize}
+%	 \item So wird sichergestellt,
+%	 \item dass alle Elemente der Präsentation 
+%	 \item dieselbe Farbe nutzen.
+%	\end{itemize}
+%	\begin{alertblock}{Achtung!}
+%	 Hier kommt Rot ins Spiel!	
+%	\end{alertblock}
+%	\begin{exampleblock}{Beispiel}
+%	 Hier kommt Grün ins Spiel!
+%	\end{exampleblock}
+%\end{frame}
 
 \end{document}
