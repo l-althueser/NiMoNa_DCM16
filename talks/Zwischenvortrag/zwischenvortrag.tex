@@ -182,40 +182,202 @@
 		\begin{small}
 		Matrix $A$: Konnektivitätsmatrix - Verschaltung der Hirnregionen \\
 		Matrix $C$: Einfluss der Inputs auf die neuronale Aktivität einer Hirnregion
-\end{small}		 
+	\end{small}		 
 	\end{frame}
 	
 \subsection{Bilineraes Modell}
 	\begin{frame}{Bilineares Modell}
-			\begin{columns}
-				\column[t]{6cm}
-				\begin{figure}
-					\centering
-					\includegraphics[width=0.95\linewidth]{res/bilinearesModell_klein.eps}
-					\\Vernetzung von 3 Hirnregionen
-					\label{fig: bilinearesModel}
-				\end{figure}
-				\column[t]{7cm}
-				\begin{center}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
+			\label{fig: bilinearesModel}
+		\end{figure}
+		\begin{columns}[c]
+			\column[t]{7cm}
+			\centering
+			\scalebox{.6}{
+				\begin{minipage}{\textwidth}
 					\begin{block}{Modell}
 						\begin{itemize}
 							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
-							\item Aktivität durch vorgegebenes Eingangssignal bestimmt
+							\item Aktivität durch vorgegebene Eingangssignale bestimmt
 						\end{itemize}
 					\end{block}
-					\vspace{0.20cm}
-					\begin{equation*}
-						\begin{split}
-							\dot{z}=(A+\sum_{j}u_jB^j)z+Cu \\
-							=\Bigg\{\left(\begin{array}{ccc} a_{11} &  a_{12} & a_{13} \\a_{21} &  a_{22} & a_{23} \\a_{31} &  a_{32} & a_{33} \end{array}\right)\\+u_2\left(\begin{array}{ccc} 
-							0 &  0 & 0 \\0 &  0 & b^{(2)}_{23} \\b^{(2)}_{31} &  0 & 0 \end{array}\right)\Bigg\}z\\+\left(\begin{array}{cc} c_{11} &  c_{12} \\c_{21} &  c_{22} \\c_{31} &  c_{32} \end{array}\right) \left(\begin{array}{c} u_1 \\u_2 \end{array}\right)
-						\end{split}
-					\end{equation*}
-				\end{center}
-			\end{columns}	
-			\vspace{0.0cm}
-			{\small Matrix $B$: Einfluss der Inputs auf die Verbindungen zwischen den Hirnregionen}
-		\end{frame}
+				\end{minipage}
+			}				
+			\column[t]{7cm}				
+				\scalebox{.6}{
+					\begin{minipage}{\textwidth}
+						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
+							\begin{itemize}
+								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
+								\item latenten Input $ u_2 $: Veränderung der Vernetzung
+							\end{itemize}
+						\end{block}
+					\end{minipage}
+			}	
+		\end{columns}	
+	\end{frame}
+	
+	\begin{frame}{Bilineares Modell}
+		\begin{columns}
+			\column[t]{7cm}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.65\linewidth]{res/bilinearesModell_neu.eps}
+				\end{figure}
+				\centering
+				\scalebox{.6}{
+					\begin{minipage}{\textwidth}
+						\begin{block}{Mathematische Beschreibung}
+							\begin{itemize}
+								\item Modellierung basierend auf Taylorentwicklung
+								\item Dynamik und Konnektivität durch drei Parameter beschrieben
+							\end{itemize}
+						\end{block}
+					\end{minipage}
+				}
+			\column[t]{7cm}
+			Aktivität der Regionen
+				\scalebox{.7}{
+					\begin{minipage}{\textwidth}					
+					$
+					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
+					$
+					\\
+					\\
+					$
+					\dot{z}_2 =a_{21}z_1+a_{22}z_2+a_{23}z_3+u_2b_{23}^{(2)}
+					$
+					\\
+					\\
+					$
+					\dot{z}_3 =a_{31}z_1+a_{32}z_2+a_{33}z_3
+					$					
+					\end{minipage}
+				}
+				\pause %Pausennummer funktioniert wie?
+				\scalebox{.98}{
+				\begin{minipage}{\textwidth}					
+					\vspace{14pt}
+					\hspace{5pt}
+					$
+					\dot{z} =(A+\sum_{i}u_iB^{(i)})z+Cu
+					$
+				\end{minipage}	
+			}
+			\scalebox{.7}{
+				\begin{minipage}{\textwidth}		
+					\vspace{16pt}
+					$ A=
+					\begin{pmatrix}
+					a_{11} & a_{12} & a_{13}\\
+					a_{21} & a_{22} & a_{23}\\
+					a_{31} & a_{32} & a_{33}
+					\end{pmatrix}
+					$
+					\hspace{5pt} 
+					$ B=
+					\begin{pmatrix}
+					0	& 0 & b_{13}\\
+					0 	& 0 & b_{23}\\
+					0	& 0 & 0
+					\end{pmatrix}
+					$
+					\\
+					\\
+					\\					
+					$ C=
+					\begin{pmatrix}
+					c_{11}	& 0\\
+					0 	& 0 \\
+					0	& 0  
+					\end{pmatrix}
+					$										
+				\end{minipage}
+			}				
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}{Bilineares Modell}
+		\begin{columns}
+			\column[t]{7cm}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.65\linewidth]{res/bilinearesModell_neu.eps}
+			\end{figure}
+			\centering
+			\scalebox{.6}{
+				\begin{minipage}{\textwidth}
+					\begin{block}{Parameter A, B, C}
+						\begin{itemize}
+							\item A: feste Verknüpfung der Hirnregionen
+							\item B: Einfluss des Inputs auf Konnektivität
+							\item C: Einfluss des Inputs auf neuronale Aktivität der Hirnregionen
+						\end{itemize}
+					\end{block}
+				\end{minipage}
+			}
+			\column[t]{7cm}
+			Aktivität der Regionen
+			\scalebox{.7}{
+				\begin{minipage}{\textwidth}					
+					$
+					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
+					$
+					\\
+					\\
+					$
+					\dot{z}_2 =a_{21}z_1+a_{22}z_2+a_{23}z_3+u_2b_{23}^{(2)}
+					$
+					\\
+					\\
+					$
+					\dot{z}_3 =a_{31}z_1+a_{32}z_2+a_{33}z_3
+					$					
+				\end{minipage}
+			}
+			\scalebox{.98}{
+				\begin{minipage}{\textwidth}					
+					\vspace{10pt}
+					\hspace{5pt}
+					$
+					\dot{z} =(A+\sum_{i}u_iB^{(i)})z+Cu
+					$
+				\end{minipage}	
+			}
+			\scalebox{.7}{
+				\begin{minipage}{\textwidth}		
+					\vspace{12pt}
+					$ A=
+					\begin{pmatrix}
+					a_{11} & a_{12} & a_{13}\\
+					a_{21} & a_{22} & a_{23}\\
+					a_{31} & a_{32} & a_{33}
+					\end{pmatrix}
+					$
+					\hspace{5pt} 
+					$ B=
+					\begin{pmatrix}
+					0	& 0 & b_{13}\\
+					0 	& 0 & b_{23}\\
+					0	& 0 & 0
+					\end{pmatrix}
+					$
+					\\
+					\\
+					\\					
+					$ C=
+					\begin{pmatrix}
+					c_{11}	& 0\\
+					0 	& 0 \\
+					0	& 0  
+					\end{pmatrix}
+					$										
+				\end{minipage}
+			}				
+		\end{columns}
+	\end{frame}	
 	
 \subsubsection{Hämodynamisches Modell}
 \begin{frame}{Vergleichbarkeit}
