@@ -394,12 +394,12 @@ Experiment (funktionelle MRT)$\Rightarrow$ BOLD-Signal/Kontrast $y_i(t)$\\
 
 \begin{frame}{Hämodynamisches Modell}
 4 biophysikalische Zustandsvariablen übermitteln $z_i(t)\rightarrow y_i(t)$:\\
-$s_i(t)$: Zusammenfassung mehrerer neurogener Signale\\$ f^{in}_i(t)$: (sauerstoffreicher) Blutzufluss \\$ v_i(t)$: Venenvolumen \\$ q_i(t)$: Desoxyhämoglobinkonzentration~\\~\\
+$s_i(t)$: Zusammenfassung mehrerer neurogener Signale\\$ f^{in}_i(t)$: (sauerstoffreicher) Blutzufluss \\$ v_i(t)$: Venenvolumen \\$ q_i(t)$: Desoxyhämoglobinmenge~\\~\\
 Biophysikalisch:~\\
 $\dot{s}_i=z_i-\kappa s_i -\gamma (f^{in}_i-1)$\\
 $\dot{f}^{in}_i=s_i$\\
 $\dot{v}_i=\frac{1}{\tau}(f^{in}_i-f^{out}_i)=\frac{1}{\tau}(f^{in}_i-v_i^{1/\alpha})$\\
-$\dot{q}_i=\frac{1}{\tau}(f^{in}_iE_i/\rho-v_i^{1/\alpha}q_i/v_i)$\\~\\
+$\dot{q}_i=\frac{1}{\tau}(f^{in}_iE_i/\rho-f^{out}_iq_i/v_i)$\\~\\
 BOLD-Signal (fMRT):\\ $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 \end{frame}
 
