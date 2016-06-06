@@ -73,11 +73,11 @@
 
 % --- Einstellungen
 
-\author{NiMoNa 2016}
+\author{NiMoNa (Zwischenpräsentation) SoSe 2016}
 \title{Konnektivität im Gehirn}
 %\institutelogo{Logo on title frame}
 %\institutelogosmall{Logo on other frames}
-\subtitle{Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher,\\ Lukas Splitthoff, Timo Wiedemann}
+\subtitle{Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher,\\ Lukas Splitthoff, Timo Wiedemann\\ Unterstützt durch: Christian Himpe}
 \date[08.06.2016]{08. Juni, 2016}
 
 % --- Beginn des Dokuments
@@ -96,24 +96,24 @@
 \end{frame}
 
 \section{Motivation und Ziel}
-	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odel}
+	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odelling}
 		\begin{columns}
 		\column[t]{6cm}
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-			\\ Interaktion zwischen\\ verschiedenen Hirnregionen
+			\\ {\small Interaktion zwischen}\\ {\small verschiedenen Hirnregionen}
 			\label{fig:brain_01}
 		\end{figure}
 		\column[t]{6cm}
 		\begin{block}{\centering Konnektivität im Gehirn}
 			\centering
-			Über die Mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
+			Über die mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
 		\end{block}
 		\vspace{0.5cm}
 		\begin{exampleblock}{\centering Ziel}
 			 \centering
-			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller interagierenden Gehirnregionen.
+			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller betrachteten interagierenden Gehirnregionen.
 		\end{exampleblock}
 		\end{columns}
 		\vskip0pt plus 1filll
@@ -140,7 +140,7 @@
 	%	\end{center}
 	%\end{frame}
 	
-\section{Die Modelle}
+\section{DCM Modelle}
 \subsection{Lineares Modell}
 	\begin{frame}{Lineares Modell}
 		\begin{columns}
@@ -148,19 +148,19 @@
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-				\\ Vernetzung von \\Hirnregionen
+				\\ {\small Vernetzung von} \\{\small Hirnregionen}
 				\label{fig:brain_02}
 			\end{figure}
 			\column[t]{8cm}
 			\begin{center}
-				$u$ Inputs $\rightarrow$ $z$ Outputs pro Hirnregion\\ 
+				Inputs $u$ $\rightarrow$ Outputs $z$ pro Hirnregion\\ 
 				\vspace{0.25cm}
 				\scalebox{.5}{
 					\begin{minipage}{\textwidth}
 					\begin{block}{Inputs}
 						\begin{itemize}
-						\item direkten Input: Veränderung des neuronalen Zustands
-						\item latenten Input: Veränderung der Vernetzung
+						\item direkten Input: Stimulation $u$ der Hirnregion
+						\item ...
 						\end{itemize}
 					\end{block}
 					\end{minipage}
@@ -185,49 +185,49 @@
 	\end{small}		 
 	\end{frame}
 	
-\subsection{Bilineraes Modell}
-	\begin{frame}{Bilineares Modell}
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
-			\label{fig: bilinearesModel}
-		\end{figure}
-		\begin{columns}[c]
-			\column[t]{7cm}
-			\centering
-			\scalebox{.6}{
-				\begin{minipage}{\textwidth}
-					\begin{block}{Modell}
-						\begin{itemize}
-							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
-							\item Aktivität durch vorgegebene Eingangssignale bestimmt
-						\end{itemize}
-					\end{block}
-				\end{minipage}
-			}				
-			\column[t]{7cm}				
-				\scalebox{.6}{
-					\begin{minipage}{\textwidth}
-						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
-							\begin{itemize}
-								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
-								\item latenten Input $ u_2 $: Veränderung der Vernetzung
-							\end{itemize}
-						\end{block}
-					\end{minipage}
-			}	
-		\end{columns}	
-	\end{frame}
+\subsection{Bilineares Modell}
+%	\begin{frame}{Bilineares Modell}
+%		\begin{figure}
+%			\centering
+%			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
+%			\label{fig: bilinearesModel}
+%		\end{figure}
+%		\begin{columns}[c]
+%			\column[t]{7cm}
+%			\centering
+%			\scalebox{.6}{
+%				\begin{minipage}{\textwidth}
+%					\begin{block}{Modell}
+%						\begin{itemize}
+%							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
+%							\item Aktivität durch vorgegebene Eingangssignale bestimmt
+%						\end{itemize}
+%					\end{block}
+%				\end{minipage}
+%			}				
+%			\column[t]{7cm}				
+%				\scalebox{.6}{
+%					\begin{minipage}{\textwidth}
+%						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
+%							\begin{itemize}
+%								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
+%								\item latenten Input $ u_2 $: Veränderung der Vernetzung
+%							\end{itemize}
+%						\end{block}
+%					\end{minipage}
+%			}	
+%		\end{columns}	
+%	\end{frame}
 	
 	\begin{frame}{Bilineares Modell}
 		\begin{columns}
-			\column[t]{7cm}
+			\column[t]{5cm}
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.65\linewidth]{res/bilinearesModell_neu.eps}
+					\includegraphics[width=0.95\linewidth]{res/bilinearesModell_neu.eps}
 				\end{figure}
 				\centering
-				\scalebox{.6}{
+				\scalebox{.95}{
 					\begin{minipage}{\textwidth}
 						\begin{block}{Mathematische Beschreibung}
 							\begin{itemize}
@@ -237,7 +237,7 @@
 						\end{block}
 					\end{minipage}
 				}
-			\column[t]{7cm}
+			\column[t]{9cm}
 			Taylorentwicklung
 			\scalebox{.7}{
 				\begin{minipage}{\textwidth}					
@@ -378,7 +378,7 @@
 		\end{columns}
 	\end{frame}	
 	
-\subsubsection{Hämodynamisches Modell}
+\subsection{Hämodynamisches Modell}
 \begin{frame}{Vergleichbarkeit}
 Bilineare Modell $\Rightarrow$ Gehirnaktivitäten $z_i(t)$\\~\\
 %\begin{figure}
