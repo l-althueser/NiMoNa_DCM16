@@ -101,25 +101,23 @@ plt.ylabel('$u_2(t)$', fontsize = 22.)
 # Gehirnaktivität plotten
 ax3 = plt.subplot(413,sharex = ax1)
 plt.setp(ax3.get_xticklabels(), fontsize = 14., visible=False)
-plt.ylabel('$z(t)$', fontsize = 22.)
+plt.ylabel('$v(t)$', fontsize = 22.)
 ax3.tick_params(width = 1.5)
 ax3.set_ylim([0,2])
 plt.yticks(np.arange(0,2.5,0.5))
 
 # Region 1:
 plt.plot(t,x[0,:],'r',label='Region 1',linewidth=1.5)     #Gehirnaktivität
-#plt.plot(t,x[3,:],'r',label='Region 1')     #Vasodilatorisches Signal
-#plt.plot(t,x[6,:],'r',label='Region 1')     #Blutfluss 
-#plt.plot(t,x[9,:],'r',label='Region 1')     #Blutvolumen
-#plt.plot(t,x[12,:],'r',label='Region 1')    #Deoxyhemoglobingehalt
+#plt.plot(t,x[2,:],'r',label='Region 1',linewidth=1.5)     #Vasodilatorisches Signal
+#plt.plot(t,x[6,:],'r',label='Region 1',linewidth=1.5)     #Blutvolumen
+
 
 # Region 2:
 plt.plot(t,xlin[1,:],'k',label='Region 2 (lineares Modell)',linewidth=1.5)     #Gehirnaktivität im linearen Modell
-#plt.plot(t,x[1,:],'g',label='Region 2',linewidth=1.5)     #Gehirnaktivität
-#plt.plot(t,x[4,:],'g',label='Region 2')     #Vasodilatorisches Signal
-#plt.plot(t,x[7,:],'g',label='Region 2')     #Blutfluss
-#plt.plot(t,x[10,:],'g',label='Region 2')    #Blutvolumen
-#plt.plot(t,x[13,:],'g',label='Region 2')    #Deoxyhemoglobingehalt
+plt.plot(t,x[1,:],'g',label='Region 2',linewidth=1.5)     #Gehirnaktivität
+#plt.plot(t,x[3,:],'g',label='Region 2',linewidth=1.5)     #Vasodilatorisches Signal
+#plt.plot(t,x[7,:],'g',label='Region 2',linewidth=1.5)    #Blutvolumen
+
 
 plt.title('Gehirnaktivität',fontsize = 18.)
 
@@ -132,9 +130,13 @@ plt.yticks(np.arange(-0.04,0.08,0.02))
 
 # Region 1:
 plt.plot(t,y[0,:],'r',label='Region 1',linewidth=1.5)      #BOLD-Signal
+#plt.plot(t,x[4,:],'r',label='Region 1',linewidth=1.5)     #Blutfluss 
+plt.plot(t,x[8,:],'r',label='Region 1',linewidth=1.5)    #Deoxyhemoglobingehalt
 # Region 2:
 plt.plot(t,ylin[1,:],'k',label='Region 2 (lineares Modell)',linewidth=1.5)     #BOLD-Signal im linearen Modell
-#plt.plot(t,y[1,:],'g',label='Region 2 (bilineares Modell)',linewidth=1.5)      #BOLD-Signal
+plt.plot(t,y[1,:],'g',label='Region 2 (bilineares Modell)',linewidth=1.5)      #BOLD-Signal
+#plt.plot(t,x[5,:],'g',label='Region 2',linewidth=1.5)     #Blutfluss
+#plt.plot(t,x[9,:],'g',label='Region 2',linewidth=1.5)    #Deoxyhemoglobingehalt
 
 ax4.legend(loc='upper center', bbox_to_anchor=(0.5, -0.27),
           fancybox=True, shadow=True, ncol=5, fontsize=16)
@@ -143,7 +145,7 @@ plt.xlabel('Zeit t', fontsize = 18.)
 plt.ylabel('$y(t)$', fontsize = 22.)
 plt.title('BOLD-Signal',fontsize = 18.)
 
-#f1.savefig('hemodynamicExample-2-linear.eps')
+#f1.savefig('hemodynamicExample-2-volumen-deshb.eps')
 
 
 
