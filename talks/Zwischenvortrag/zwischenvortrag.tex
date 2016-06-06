@@ -73,11 +73,11 @@
 
 % --- Einstellungen
 
-\author{NiMoNa 2016}
+\author{NiMoNa (Zwischenpräsentation) SoSe 2016}
 \title{Konnektivität im Gehirn}
 %\institutelogo{Logo on title frame}
 %\institutelogosmall{Logo on other frames}
-\subtitle{Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher,\\ Lukas Splitthoff, Timo Wiedemann}
+\subtitle{Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher,\\ Lukas Splitthoff, Timo Wiedemann\\ Unterstützt durch: Christian Himpe}
 \date[08.06.2016]{08. Juni, 2016}
 
 % --- Beginn des Dokuments
@@ -96,24 +96,24 @@
 \end{frame}
 
 \section{Motivation und Ziel}
-	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odel}
+	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odelling}
 		\begin{columns}
 		\column[t]{6cm}
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-			\\ Interaktion zwischen\\ verschiedenen Hirnregionen
+			\\ {\small Interaktion zwischen}\\ {\small verschiedenen Hirnregionen}
 			\label{fig:brain_01}
 		\end{figure}
 		\column[t]{6cm}
 		\begin{block}{\centering Konnektivität im Gehirn}
 			\centering
-			Über die Mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
+			Über die mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
 		\end{block}
 		\vspace{0.5cm}
 		\begin{exampleblock}{\centering Ziel}
 			 \centering
-			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller interagierenden Gehirnregionen.
+			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller betrachteten interagierenden Gehirnregionen.
 		\end{exampleblock}
 		\end{columns}
 		\vskip0pt plus 1filll
@@ -140,7 +140,7 @@
 	%	\end{center}
 	%\end{frame}
 	
-\section{Die Modelle}
+\section{DCM Modelle}
 \subsection{Lineares Modell}
 	\begin{frame}{Lineares Modell}
 		\begin{columns}
@@ -148,19 +148,19 @@
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-				\\ Vernetzung von \\Hirnregionen
+				\\ {\small Vernetzung von} \\{\small Hirnregionen}
 				\label{fig:brain_02}
 			\end{figure}
 			\column[t]{8cm}
 			\begin{center}
-				$u$ Inputs $\rightarrow$ $z$ Outputs pro Hirnregion\\ 
+				Inputs $u$ $\rightarrow$ Outputs $z$ pro Hirnregion\\ 
 				\vspace{0.25cm}
 				\scalebox{.5}{
 					\begin{minipage}{\textwidth}
 					\begin{block}{Inputs}
 						\begin{itemize}
-						\item direkten Input: Veränderung des neuronalen Zustands
-						\item latenten Input: Veränderung der Vernetzung
+						\item direkten Input: Stimulation $u$ der Hirnregion
+						\item ...
 						\end{itemize}
 					\end{block}
 					\end{minipage}
@@ -185,49 +185,49 @@
 	\end{small}		 
 	\end{frame}
 	
-\subsection{Bilineraes Modell}
-	\begin{frame}{Bilineares Modell}
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
-			\label{fig: bilinearesModel}
-		\end{figure}
-		\begin{columns}[c]
-			\column[t]{7cm}
-			\centering
-			\scalebox{.6}{
-				\begin{minipage}{\textwidth}
-					\begin{block}{Modell}
-						\begin{itemize}
-							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
-							\item Aktivität durch vorgegebene Eingangssignale bestimmt
-						\end{itemize}
-					\end{block}
-				\end{minipage}
-			}				
-			\column[t]{7cm}				
-				\scalebox{.6}{
-					\begin{minipage}{\textwidth}
-						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
-							\begin{itemize}
-								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
-								\item latenten Input $ u_2 $: Veränderung der Vernetzung
-							\end{itemize}
-						\end{block}
-					\end{minipage}
-			}	
-		\end{columns}	
-	\end{frame}
+\subsection{Bilineares Modell}
+%	\begin{frame}{Bilineares Modell}
+%		\begin{figure}
+%			\centering
+%			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
+%			\label{fig: bilinearesModel}
+%		\end{figure}
+%		\begin{columns}[c]
+%			\column[t]{7cm}
+%			\centering
+%			\scalebox{.6}{
+%				\begin{minipage}{\textwidth}
+%					\begin{block}{Modell}
+%						\begin{itemize}
+%							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
+%							\item Aktivität durch vorgegebene Eingangssignale bestimmt
+%						\end{itemize}
+%					\end{block}
+%				\end{minipage}
+%			}				
+%			\column[t]{7cm}				
+%				\scalebox{.6}{
+%					\begin{minipage}{\textwidth}
+%						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
+%							\begin{itemize}
+%								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
+%								\item latenten Input $ u_2 $: Veränderung der Vernetzung
+%							\end{itemize}
+%						\end{block}
+%					\end{minipage}
+%			}	
+%		\end{columns}	
+%	\end{frame}
 	
 	\begin{frame}{Bilineares Modell}
 		\begin{columns}
-			\column[t]{7cm}
+			\column[t]{5cm}
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.65\linewidth]{res/bilinearesModell_neu.eps}
+					\includegraphics[width=0.95\linewidth]{res/bilinearesModell_neu.eps}
 				\end{figure}
 				\centering
-				\scalebox{.6}{
+				\scalebox{.95}{
 					\begin{minipage}{\textwidth}
 						\begin{block}{Mathematische Beschreibung}
 							\begin{itemize}
@@ -237,23 +237,23 @@
 						\end{block}
 					\end{minipage}
 				}
-			\column[t]{7cm}
-			Aktivität der Regionen
+			\column[t]{9cm}
+			Taylorentwicklung
+			\scalebox{.7}{
+				\begin{minipage}{\textwidth}					
+					$
+					f(z,u) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
+					$
+				\end{minipage}
+			}
+			\pause %Pausennummer funktioniert wie?
+			\\ \vspace{10pt}
+			Bsp: Aktivität der Region 1
 				\scalebox{.7}{
 					\begin{minipage}{\textwidth}					
 					$
 					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
 					$
-					\\
-					\\
-					$
-					\dot{z}_2 =a_{21}z_1+a_{22}z_2+a_{23}z_3+u_2b_{23}^{(2)}
-					$
-					\\
-					\\
-					$
-					\dot{z}_3 =a_{31}z_1+a_{32}z_2+a_{33}z_3
-					$					
 					\end{minipage}
 				}
 				\pause %Pausennummer funktioniert wie?
@@ -319,27 +319,26 @@
 				\end{minipage}
 			}
 			\column[t]{7cm}
-			Aktivität der Regionen
+			Taylorentwicklung
+			\scalebox{.7}{
+				\begin{minipage}{\textwidth}					
+					$
+					f(z,u) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
+					$
+				\end{minipage}
+			}
+			\\ \vspace{10pt}
+			Bsp: Aktivität der Region 1
 			\scalebox{.7}{
 				\begin{minipage}{\textwidth}					
 					$
 					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
 					$
-					\\
-					\\
-					$
-					\dot{z}_2 =a_{21}z_1+a_{22}z_2+a_{23}z_3+u_2b_{23}^{(2)}
-					$
-					\\
-					\\
-					$
-					\dot{z}_3 =a_{31}z_1+a_{32}z_2+a_{33}z_3
-					$					
 				\end{minipage}
 			}
 			\scalebox{.98}{
 				\begin{minipage}{\textwidth}					
-					\vspace{10pt}
+					\vspace{14pt}
 					\hspace{5pt}
 					$
 					\dot{z} =(A+\sum_{i}u_iB^{(i)})z+Cu
@@ -348,7 +347,7 @@
 			}
 			\scalebox{.7}{
 				\begin{minipage}{\textwidth}		
-					\vspace{12pt}
+					\vspace{16pt}
 					$ A=
 					\begin{pmatrix}
 					a_{11} & a_{12} & a_{13}\\
@@ -379,28 +378,28 @@
 		\end{columns}
 	\end{frame}	
 	
-\subsubsection{Hämodynamisches Modell}
+\subsection{Hämodynamisches Modell}
 \begin{frame}{Vergleichbarkeit}
 Bilineare Modell $\Rightarrow$ Gehirnaktivitäten $z_i(t)$\\~\\
-\begin{figure}
-	{\includegraphics[width=0.8\linewidth]{res/Modelluebersicht_klein.eps}}
-\end{figure}
-\pause
+%\begin{figure}
+	%{\includegraphics[width=0.8\linewidth]{res/Modelluebersicht_klein.eps}}
+%\end{figure}
+%\pause
 Experiment (funktionelle MRT)$\Rightarrow$ BOLD-Signal/Kontrast $y_i(t)$\\
 \hspace{3cm} $\approx$ Sauerstoffgehalt der roten Blutkörperchen 
 \begin{figure}
-{\includegraphics[width=8cm]{res/bold_signal.jpg}}
+{\includegraphics[width=0.3 \textwidth]{res/bold_signal.jpg}}
 \end{figure}
 \end{frame}
 
 \begin{frame}{Hämodynamisches Modell}
 4 biophysikalische Zustandsvariablen übermitteln $z_i(t)\rightarrow y_i(t)$:\\
-$s_i(t)$: Zusammenfassung mehrerer neurogener Signale\\$ f^{in}_i(t)$: (sauerstoffreicher) Blutzufluss \\$ v_i(t)$: Venenvolumen \\$ q_i(t)$: Desoxyhämoglobinkonzentration~\\~\\
+$s_i(t)$: Zusammenfassung mehrerer neurogener Signale\\$ f^{in}_i(t)$: (sauerstoffreicher) Blutzufluss \\$ v_i(t)$: Venenvolumen \\$ q_i(t)$: Desoxyhämoglobinmenge~\\~\\
 Biophysikalisch:~\\
 $\dot{s}_i=z_i-\kappa s_i -\gamma (f^{in}_i-1)$\\
 $\dot{f}^{in}_i=s_i$\\
 $\dot{v}_i=\frac{1}{\tau}(f^{in}_i-f^{out}_i)=\frac{1}{\tau}(f^{in}_i-v_i^{1/\alpha})$\\
-$\dot{q}_i=\frac{1}{\tau}(f^{in}_iE_i/\rho-v_i^{1/\alpha}q_i/v_i)$\\~\\
+$\dot{q}_i=\frac{1}{\tau}(f^{in}_iE_i/\rho-f^{out}_iq_i/v_i)$\\~\\
 BOLD-Signal (fMRT):\\ $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 \end{frame}
 
