@@ -77,49 +77,47 @@ ylin = HM.BOLDsignal(xlin)                                    # Berechnung des B
 #-----------------------------------------------------------------------------------------------------------------
 # Plotten 
 plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
-plt.rcParams['axes.linewidth'] = 1.5
+plt.rcParams['axes.linewidth'] = 2
 
 plt.cla() 
 f1 =plt.figure(1)
 #f1.suptitle('DCM - Simulation', fontsize = 20)
 # Stimulus 
 ax1 = plt.subplot(411)
-ax1.tick_params(width = 1.5)
+ax1.tick_params(width = 2)
 plt.xticks(np.arange(10,100,10))
-plt.plot(t,u[0,:],'b',label='')
+plt.plot(t,u[0,:],'b',linewidth=2)
 plt.setp(ax1.get_xticklabels(), visible=False)
-plt.ylabel('$u_1(t)$', fontsize = 20.)
+plt.ylabel('$u_1(t)$', fontsize = 22.)
 plt.title('Stimuli',fontsize = 20.)
 
 ax2 = plt.subplot(412,sharex = ax1, sharey =ax1)
-ax2.tick_params(width = 1.5)
-plt.plot(t,u[1,:],'b')
+ax2.tick_params(width = 2)
+plt.plot(t,u[1,:],'b', linewidth=2)
 ax2.set_ylim([0,np.max(u)+1])
 plt.setp(ax2.get_xticklabels(), visible=False)
-plt.ylabel('$u_2(t)$', fontsize = 20.)
+plt.ylabel('$u_2(t)$', fontsize = 22.)
 
 # Gehirnaktivität plotten
 ax3 = plt.subplot(413,sharex = ax1)
 plt.setp(ax3.get_xticklabels(), fontsize = 14., visible=False)
-plt.ylabel('$z(t)$', fontsize = 18.)
+plt.ylabel('$v(t)$', fontsize = 22.)
 ax3.tick_params(width = 1.5)
 ax3.set_ylim([0,2])
 plt.yticks(np.arange(0,2.5,0.5))
 
 # Region 1:
-plt.plot(t,x[0,:],'r',label='Region 1')     #Gehirnaktivität
-#plt.plot(t,x[3,:],'r',label='Region 1')     #Vasodilatorisches Signal
-#plt.plot(t,x[6,:],'r',label='Region 1')     #Blutfluss 
-#plt.plot(t,x[9,:],'r',label='Region 1')     #Blutvolumen
-#plt.plot(t,x[12,:],'r',label='Region 1')    #Deoxyhemoglobingehalt
+plt.plot(t,x[0,:],'r',label='Region 1',linewidth=1.5)     #Gehirnaktivität
+#plt.plot(t,x[2,:],'r',label='Region 1',linewidth=1.5)     #Vasodilatorisches Signal
+#plt.plot(t,x[6,:],'r',label='Region 1',linewidth=1.5)     #Blutvolumen
+
 
 # Region 2:
-plt.plot(t,xlin[1,:],'k',label='Region 2 (lineares Modell)')     #Gehirnaktivität im linearen Modell
-plt.plot(t,x[1,:],'g',label='Region 2')     #Gehirnaktivität
-#plt.plot(t,x[4,:],'g',label='Region 2')     #Vasodilatorisches Signal
-#plt.plot(t,x[7,:],'g',label='Region 2')     #Blutfluss
-#plt.plot(t,x[10,:],'g',label='Region 2')    #Blutvolumen
-#plt.plot(t,x[13,:],'g',label='Region 2')    #Deoxyhemoglobingehalt
+plt.plot(t,xlin[1,:],'k',label='Region 2 (lineares Modell)',linewidth=1.5)     #Gehirnaktivität im linearen Modell
+plt.plot(t,x[1,:],'g',label='Region 2',linewidth=1.5)     #Gehirnaktivität
+#plt.plot(t,x[3,:],'g',label='Region 2',linewidth=1.5)     #Vasodilatorisches Signal
+#plt.plot(t,x[7,:],'g',label='Region 2',linewidth=1.5)    #Blutvolumen
+
 
 plt.title('Gehirnaktivität',fontsize = 18.)
 
@@ -131,19 +129,23 @@ ax4.set_ylim([-0.04,0.06])
 plt.yticks(np.arange(-0.04,0.08,0.02))
 
 # Region 1:
-plt.plot(t,y[0,:],'r',label='Region 1')      #BOLD-Signal
+plt.plot(t,y[0,:],'r',label='Region 1',linewidth=1.5)      #BOLD-Signal
+#plt.plot(t,x[4,:],'r',label='Region 1',linewidth=1.5)     #Blutfluss 
+plt.plot(t,x[8,:],'r',label='Region 1',linewidth=1.5)    #Deoxyhemoglobingehalt
 # Region 2:
-plt.plot(t,ylin[1,:],'k',label='Region 2 (lineares Modell)')     #BOLD-Signal im linearen Modell
-plt.plot(t,y[1,:],'g',label='Region 2')      #BOLD-Signal
+plt.plot(t,ylin[1,:],'k',label='Region 2 (lineares Modell)',linewidth=1.5)     #BOLD-Signal im linearen Modell
+plt.plot(t,y[1,:],'g',label='Region 2 (bilineares Modell)',linewidth=1.5)      #BOLD-Signal
+#plt.plot(t,x[5,:],'g',label='Region 2',linewidth=1.5)     #Blutfluss
+#plt.plot(t,x[9,:],'g',label='Region 2',linewidth=1.5)    #Deoxyhemoglobingehalt
 
-ax4.legend(loc='upper center', bbox_to_anchor=(0.5, -0.28),
-          fancybox=True, shadow=True, ncol=5)
+ax4.legend(loc='upper center', bbox_to_anchor=(0.5, -0.27),
+          fancybox=True, shadow=True, ncol=5, fontsize=16)
 
 plt.xlabel('Zeit t', fontsize = 18.)
-plt.ylabel('$y(t)$', fontsize = 20.)
+plt.ylabel('$y(t)$', fontsize = 22.)
 plt.title('BOLD-Signal',fontsize = 18.)
 
-#f1.savefig('hemodynamicExample-2-bilinear.eps')
+#f1.savefig('hemodynamicExample-2-volumen-deshb.eps')
 
 
 

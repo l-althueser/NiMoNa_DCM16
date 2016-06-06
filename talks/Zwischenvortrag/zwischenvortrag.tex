@@ -73,11 +73,11 @@
 
 % --- Einstellungen
 
-\author{NiMoNa 2016}
+\author{NiMoNa (Zwischenpräsentation) SoSe 2016}
 \title{Konnektivität im Gehirn}
 %\institutelogo{Logo on title frame}
 %\institutelogosmall{Logo on other frames}
-\subtitle{Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher,\\ Lukas Splitthoff, Timo Wiedemann}
+\subtitle{Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher,\\ Lukas Splitthoff, Timo Wiedemann\\ \vspace{0.25cm} Unterstützt durch: Christian Himpe}
 \date[08.06.2016]{08. Juni, 2016}
 
 % --- Beginn des Dokuments
@@ -96,24 +96,24 @@
 \end{frame}
 
 \section{Motivation und Ziel}
-	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odel}
+	\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odelling}
 		\begin{columns}
 		\column[t]{6cm}
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-			\\ Interaktion zwischen\\ verschiedenen Hirnregionen
+			\\ {\small Interaktion zwischen}\\ {\small verschiedenen Hirnregionen}
 			\label{fig:brain_01}
 		\end{figure}
 		\column[t]{6cm}
 		\begin{block}{\centering Konnektivität im Gehirn}
 			\centering
-			Über die Mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
+			Über die mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
 		\end{block}
 		\vspace{0.5cm}
 		\begin{exampleblock}{\centering Ziel}
 			 \centering
-			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller interagierenden Gehirnregionen.
+			 Das Aufstellen eines einfachen und realistischen neuronalen Modells aller betrachteten interagierenden Gehirnregionen.
 		\end{exampleblock}
 		\end{columns}
 		\vskip0pt plus 1filll
@@ -140,7 +140,7 @@
 	%	\end{center}
 	%\end{frame}
 	
-\section{Die Modelle}
+\section{DCM Modelle}
 \subsection{Lineares Modell}
 	\begin{frame}{Lineares Modell}
 		\begin{columns}
@@ -148,19 +148,19 @@
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
-				\\ Vernetzung von \\Hirnregionen
+				\\ {\small Vernetzung von} \\{\small Hirnregionen}
 				\label{fig:brain_02}
 			\end{figure}
 			\column[t]{8cm}
 			\begin{center}
-				$u$ Inputs $\rightarrow$ $z$ Outputs pro Hirnregion\\ 
+				Inputs $u$ $\rightarrow$ Outputs $z$ pro Hirnregion\\ 
 				\vspace{0.25cm}
 				\scalebox{.5}{
 					\begin{minipage}{\textwidth}
 					\begin{block}{Inputs}
 						\begin{itemize}
-						\item direkten Input: Veränderung des neuronalen Zustands
-						\item latenten Input: Veränderung der Vernetzung
+						\item direkten Input: Stimulation $u$ der Hirnregion
+						\item ...
 						\end{itemize}
 					\end{block}
 					\end{minipage}
@@ -175,7 +175,7 @@
 					\end{minipage}
 				}\\
 				\vspace{0.5cm}
-				$\dot{z}=A+Cu$ 
+				$\dot{z}=A z(t)+C u(t)$ 
 			\end{center}
 		\end{columns}	
 		\vspace{0.5cm}
@@ -185,50 +185,50 @@
 	\end{small}		 
 	\end{frame}
 	
-\subsection{Bilineraes Modell}
-	\begin{frame}{Bilineares Modell}
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
-			\label{fig: bilinearesModel}
-		\end{figure}
-		\begin{columns}[c]
-			\column[t]{7cm}
-			\centering
-			\scalebox{.6}{
-				\begin{minipage}{\textwidth}
-					\begin{block}{Modell}
-						\begin{itemize}
-							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
-							\item Aktivität durch vorgegebene Eingangssignale bestimmt
-						\end{itemize}
-					\end{block}
-				\end{minipage}
-			}				
-			\column[t]{7cm}				
-				\scalebox{.6}{
-					\begin{minipage}{\textwidth}
-						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
-							\begin{itemize}
-								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
-								\item latenten Input $ u_2 $: Veränderung der Vernetzung
-							\end{itemize}
-						\end{block}
-					\end{minipage}
-			}	
-		\end{columns}	
-	\end{frame}
+\subsection{Bilineares Modell}
+%	\begin{frame}{Bilineares Modell}
+%		\begin{figure}
+%			\centering
+%			\includegraphics[width=0.60\linewidth]{res/bilinearesModell_neu.eps}
+%			\label{fig: bilinearesModel}
+%		\end{figure}
+%		\begin{columns}[c]
+%			\column[t]{7cm}
+%			\centering
+%			\scalebox{.6}{
+%				\begin{minipage}{\textwidth}
+%					\begin{block}{Modell}
+%						\begin{itemize}
+%							\item n verschiedene Gehirnregionen mit der Zustandsvariablen $ z_i $ mit $ i=1,...,n $
+%							\item Aktivität durch vorgegebene Eingangssignale bestimmt
+%						\end{itemize}
+%					\end{block}
+%				\end{minipage}
+%			}				
+%			\column[t]{7cm}				
+%				\scalebox{.6}{
+%					\begin{minipage}{\textwidth}
+%						\begin{block}{Input $ u_1 $, $ u_2 $}					%Ggf. diesen Block inhaltlich änder, da Dopplung
+%							\begin{itemize}
+%								\item direkten Input $ u_1 $: Veränderung des neuronalen Zustands
+%								\item latenten Input $ u_2 $: Veränderung der Vernetzung
+%							\end{itemize}
+%						\end{block}
+%					\end{minipage}
+%			}	
+%		\end{columns}	
+%	\end{frame}
 	
-	\begin{frame}{Bilineares Modell}
+	\begin{frame}{Bilineares Modell}%Seite 1 -bilineares Modell
 		\begin{columns}
-			\column[t]{7cm}
+			\column[t]{5.5cm}
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.65\linewidth]{res/bilinearesModell_neu.eps}
+					\includegraphics[width=0.95\linewidth]{res/bilinearesModell_neu.eps}
 				\end{figure}
 				\centering
 				\scalebox{.6}{
-					\begin{minipage}{\textwidth}
+					\begin{minipage}{1.3\textwidth}
 						\begin{block}{Mathematische Beschreibung}
 							\begin{itemize}
 								\item Modellierung basierend auf Taylorentwicklung
@@ -237,36 +237,34 @@
 						\end{block}
 					\end{minipage}
 				}
-			\column[t]{7cm}
+			\column[t]{9cm}
 			Taylorentwicklung
-			\scalebox{.7}{
+			\scalebox{.8}{
 				\begin{minipage}{\textwidth}					
 					$
-					f(z,u) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
+					\dot{z}=f(z(t),u(t)) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
 					$
 				\end{minipage}
 			}
-			\pause %Pausennummer funktioniert wie?
+			\pause 
 			\\ \vspace{10pt}
 			Bsp: Aktivität der Region 1
-				\scalebox{.7}{
+				\scalebox{.8}{
 					\begin{minipage}{\textwidth}					
 					$
 					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
 					$
 					\end{minipage}
 				}
-				\pause %Pausennummer funktioniert wie?
-				\scalebox{.98}{
-				\begin{minipage}{\textwidth}					
-					\vspace{14pt}
-					\hspace{5pt}
+				\pause 
+				\vspace{15pt}
+				\\
+				\scalebox{.88}{					
+				\centering{\colorbox{maincolor!10}{
 					$
-					\dot{z} =(A+\sum_{i}u_iB^{(i)})z+Cu
-					$
-				\end{minipage}	
-			}
-			\scalebox{.7}{
+					\dot{z}(t)=A\cdot z(t)+\sum_{j}u_j(t)B^j\cdot z(t)+C\cdot u(t)
+					$}}	}			
+			\scalebox{.8}{
 				\begin{minipage}{\textwidth}		
 					\vspace{16pt}
 					$ A=
@@ -277,10 +275,10 @@
 					\end{pmatrix}
 					$
 					\hspace{5pt} 
-					$ B=
+					$ B^{(2)}=
 					\begin{pmatrix}
-					0	& 0 & b_{13}\\
-					0 	& 0 & b_{23}\\
+					0	& 0 & b_{13}^{(2)}\\
+					0 	& 0 & b_{23}^{(2)}\\
 					0	& 0 & 0
 					\end{pmatrix}
 					$
@@ -299,16 +297,16 @@
 		\end{columns}
 	\end{frame}
 	
-	\begin{frame}{Bilineares Modell}
+	\begin{frame}{Bilineares Modell} %Seite 2 - bilineares Modell
 		\begin{columns}
-			\column[t]{7cm}
+			\column[t]{5.5cm}
 			\begin{figure}
 				\centering
-				\includegraphics[width=0.65\linewidth]{res/bilinearesModell_neu.eps}
+				\includegraphics[width=0.95\linewidth]{res/bilinearesModell_neu.eps}
 			\end{figure}
 			\centering
 			\scalebox{.6}{
-				\begin{minipage}{\textwidth}
+				\begin{minipage}{1.3\textwidth}
 					\begin{block}{Parameter A, B, C}
 						\begin{itemize}
 							\item A: feste Verknüpfung der Hirnregionen
@@ -318,34 +316,32 @@
 					\end{block}
 				\end{minipage}
 			}
-			\column[t]{7cm}
+			\column[t]{9cm}
 			Taylorentwicklung
-			\scalebox{.7}{
+			\scalebox{.8}{
 				\begin{minipage}{\textwidth}					
 					$
-					f(z,u) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
+					\dot{z}=f(z(t),u(t)) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
 					$
 				\end{minipage}
 			}
-			\\ \vspace{10pt}
+			\\ \vspace{15pt}
 			Bsp: Aktivität der Region 1
-			\scalebox{.7}{
+			\scalebox{.8}{
 				\begin{minipage}{\textwidth}					
 					$
 					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
 					$
 				\end{minipage}
 			}
-			\scalebox{.98}{
-				\begin{minipage}{\textwidth}					
-					\vspace{14pt}
-					\hspace{5pt}
-					$
-					\dot{z} =(A+\sum_{i}u_iB^{(i)})z+Cu
-					$
-				\end{minipage}	
-			}
-			\scalebox{.7}{
+			\vspace{10pt}
+			\\
+			\scalebox{.88}{					
+				\centering{\colorbox{maincolor!10}{
+						$
+						\dot{z}(t)=A\cdot z(t)+\sum_{j}u_j(t)B^j\cdot z(t)+C\cdot u(t)
+						$}}	}			
+			\scalebox{.8}{
 				\begin{minipage}{\textwidth}		
 					\vspace{16pt}
 					$ A=
@@ -356,10 +352,10 @@
 					\end{pmatrix}
 					$
 					\hspace{5pt} 
-					$ B=
+					$ B^{(2)}=
 					\begin{pmatrix}
-					0	& 0 & b_{13}\\
-					0 	& 0 & b_{23}\\
+					0	& 0 & b_{13}^{(2)}\\
+					0 	& 0 & b_{23}^{(2)}\\
 					0	& 0 & 0
 					\end{pmatrix}
 					$
@@ -378,7 +374,7 @@
 		\end{columns}
 	\end{frame}	
 	
-\subsubsection{Hämodynamisches Modell}
+\subsection{Hämodynamisches Modell}
 \begin{frame}{Vergleichbarkeit}
 Bilineares Modell $\Rightarrow$ Gehirnaktivität $z_i(t)$\\~\\
 %\begin{figure}
@@ -446,7 +442,7 @@ BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 		\end{figure}
 		\centering{\colorbox{maincolor!10}{
 		$
-		\dot{z}=\left(A+\sum_{j}u_jB^j\right)z+Cu
+		\dot{z}(t)=A\cdot z(t)+\sum_{j}u_jB^j\cdot z(t)+C\cdot u(t)
 		$}}
 		\begin{align*}
 		& A  =
@@ -467,8 +463,8 @@ BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 	\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
 		\centering
 		\begin{figure}
-			\vspace*{-0.52cm}
-			\includegraphics[width=0.98\linewidth ]{res/hemodynamicExample-2-stimulus.eps}
+			\vspace*{-0.53cm}
+			\includegraphics[width=0.975\linewidth ]{res/hemodynamicExample-2-stimulus.eps}
 		\end{figure}
 		\begin{tikzpicture}[remember picture,overlay]
 			\node[at=(current page.center), xshift=4cm, yshift=3.5cm]{\includegraphics[width=0.35\linewidth ]
@@ -478,8 +474,8 @@ BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 	\end{frame}
 	\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
 		\begin{figure}
-			\vspace*{-0.52cm}
-			{\includegraphics[width=0.98\linewidth]{res/hemodynamicExample-2-linear.eps}}
+			\vspace*{-0.53cm}
+			{\includegraphics[width=0.975\linewidth]{res/hemodynamicExample-2-linear.eps}}
 		\end{figure}
 		\begin{tikzpicture}[remember picture,overlay]
 			\node[at=(current page.center), xshift=4cm, yshift=3.5cm] {\includegraphics[width=0.35\linewidth ]
@@ -489,8 +485,8 @@ BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 	\end{frame}
 	\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
 		\begin{figure}
-			\vspace*{-0.52cm}
-			{\includegraphics[width=0.98\linewidth ]{res/hemodynamicExample-2-bilinear.eps}}
+			\vspace*{-0.53cm}
+			{\includegraphics[width=0.975\linewidth ]{res/hemodynamicExample-2-bilinear.eps}}
 		\end{figure}
 		\begin{tikzpicture}[remember picture,overlay]
 			\node[at=(current page.center), xshift=4cm, yshift=3.5cm]{\includegraphics[width=0.35\linewidth ]
@@ -499,21 +495,64 @@ BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 		%\vskip0pt plus 1filll
 	\end{frame}
 
+\begin{frame}[t]{Zusammenfassung und Ausblick}
+	\begin{columns}
+		\column[t]{6.8cm}
+		\vspace{-0.5 cm}
+		\begin{itemize}
+			\item \textit{Ziel:} \\Modellierung von Interaktionen in einem neuronalen Netzwerk\\[0.5cm]
+			\item \textit{Ansatz:} \\Taylorentwicklung bis zur 2ten Ordnung für die neuronale Aktivität \\[0.5cm]
+			\item \textit{Vergleichbarkeit mit Experiment:} \\ Hämodynamisches Modell Variation des Blutvolumens und des desoxygenierten Hämoglobins
+		\end{itemize}
+		\column[t]{6cm}
+		\begin{figure}
+			\centering
+			\vspace{-1cm}
+			\includegraphics[width=0.98\linewidth]{res/Aguirre1998-BOLD-hemodynamic-responses.pdf}
+			\vspace{-0.1cm}
+			\caption*{\scriptsize Hämodynamische Antworten einer Gruppe von fünf Probanden. \\ (nach Aguirre et al., NeuroImage \textbf{8}, 1998)}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ende
 \begin{frame}
 \centering
-\huge Vielen Dank für die Aufmerksamkeit!
+\huge Danke für die Aufmerksamkeit!
 \end{frame}
 
 
 \section{Literatur}
 	\begin{frame}{Literatur}
 		\begin{itemize}
-			\item \textit{Dynamic causal modelling} \\ {\small K.J. Friston et al. / NeuroImage 0 (2003)} \\ {\footnotesize \url{web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf}}
+			\item \textit{Dynamic causal modelling} \\ {\small K.J. Friston, L. Harrison and W. Penny / NeuroImage (2003)} \\ {\footnotesize \url{web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf}}
 %			\item \textit{{\small Bayesian Estimation of Dynamical Systems: An Application to fMRI}} \\ {\small K.J. Friston / NeuroImage (2002)} \\ {\footnotesize \url{www.sciencedirect.com/science/article/pii/S1053811901910444}}
 		\end{itemize}
 	\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Backupfolien
+\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
+		\begin{figure}
+			\vspace*{-0.53cm}
+			{\includegraphics[width=0.975\linewidth ]{res/hemodynamicExample-2-signal-fluss.eps}}
+		\end{figure}
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[at=(current page.center), xshift=4cm, yshift=3.5cm]{\includegraphics[width=0.35\linewidth ]
+				{res/bilinearesModel_bunt_lin_werte.eps}};
+		\end{tikzpicture}
+		%\vskip0pt plus 1filll
+\end{frame}
+\begin{frame}[t]{Simulation eines 2-Regionen-Systems}
+		\begin{figure}
+			\vspace*{-0.53cm}
+			{\includegraphics[width=0.975\linewidth ]{res/hemodynamicExample-2-volumen-deshb.eps}}
+		\end{figure}
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[at=(current page.center), xshift=4cm, yshift=3.5cm]{\includegraphics[width=0.35\linewidth ]
+				{res/bilinearesModel_bunt_lin_werte.eps}};
+		\end{tikzpicture}
+		%\vskip0pt plus 1filll
+\end{frame}
 
 
 %\begin{frame}
