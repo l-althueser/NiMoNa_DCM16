@@ -423,7 +423,7 @@ BOLD-Signal (fMRT):\\ $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 		\end{figure}
 		\centering{\colorbox{maincolor!10}{
 		$
-		\dot{z}=\left(A+\sum_{j}u_jB^j\right)z+Cu
+		\dot{z}(t)=A\cdot z(t)+\sum_{j}u_jB^j\cdot z(t)+C\cdot u(t)
 		$}}
 		\begin{align*}
 		& A  =
@@ -476,10 +476,30 @@ BOLD-Signal (fMRT):\\ $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 		%\vskip0pt plus 1filll
 	\end{frame}
 
+\begin{frame}[t]{Zusammenfassung und Ausblick}
+	\begin{columns}
+		\column[t]{6.8cm}
+		\vspace{-0.5 cm}
+		\begin{itemize}
+			\item \textit{Ziel:} \\Modellierung von Interaktionen in einem neuronalen Netzwerk\\[0.5cm]
+			\item \textit{Ansatz:} \\Taylorentwicklung bis zur 2ten Ordnung für die neuronale Aktivität \\[0.5cm]
+			\item \textit{Vergleichbarkeit mit Experiment:} \\ Hämodynamisches Modell Variation des Blutvolumens und des desoxygenierten Hämoglobins
+		\end{itemize}
+		\column[t]{6cm}
+		\begin{figure}
+			\centering
+			\vspace{-1cm}
+			\includegraphics[width=0.98\linewidth]{res/Aguirre1998-BOLD-hemodynamic-responses.pdf}
+			\vspace{-0.1cm}
+			\caption*{\scriptsize Hämodynamische Antworten einer Gruppe von fünf Probanden. \\ (nach Aguirre et al., NeuroImage \textbf{8}, 1998)}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ende
 \begin{frame}
 \centering
-\huge Vielen Dank für die Aufmerksamkeit!
+\huge Danke für die Aufmerksamkeit!
 \end{frame}
 
 
