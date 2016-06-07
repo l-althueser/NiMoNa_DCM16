@@ -140,7 +140,7 @@
 	%	\end{center}
 	%\end{frame}
 	
-\section{DCM Modelle}
+\section{Einleitung in DCM}
 \subsection{Lineares Modell}
 	\begin{frame}{Lineares Modell}
 		\begin{columns}
@@ -174,8 +174,11 @@
 					\end{block}
 					\end{minipage}
 				}\\
-				\vspace{0.5cm}
-				$\dot{z}=A z(t)+C u(t)$ 
+				\vspace{0.2cm}
+				\begin{align*}
+				\dot{z} &= f(z(t),u(t)) \\
+				&\approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u}u =A z(t)+C u(t)
+				\end{align*}
 			\end{center}
 		\end{columns}	
 		\vspace{0.5cm}
@@ -240,15 +243,60 @@
 			\column[t]{9cm}
 			Taylorentwicklung
 			\scalebox{.8}{
-				\begin{minipage}{\textwidth}					
+				\begin{minipage}{\textwidth}
+				%\centering					
+					$
+					\dot{z}=f(z(t),u(t)) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
+					$
+				\end{minipage}
+				}
+		\end{columns}
+	\end{frame}
+	
+\begin{frame}{Bilineares Modell}%Seite 2 -bilineares Modell
+		\begin{columns}
+			\column[t]{5.5cm}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.95\linewidth]{res/bilinearesModell_neu.eps}
+				\end{figure}
+				\centering
+				\scalebox{.6}{
+					\begin{minipage}{1.3\textwidth}
+						\begin{block}{Mathematische Beschreibung}
+							\begin{itemize}
+							\item A: feste Verknüpfung der Hirnregionen
+							\item B: Einfluss des Inputs auf Konnektivität
+							\item C: Einfluss des Inputs auf neuronale Aktivität der Hirnregionen
+							\end{itemize}
+						\end{block}
+					\end{minipage}
+				}
+			\column[t]{9cm}
+			Taylorentwicklung
+			\scalebox{.8}{
+				\begin{minipage}{\textwidth}
+				%\centering					
 					$
 					\dot{z}=f(z(t),u(t)) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
 					$
 				\end{minipage}
 			}
-			\pause 
-			\\ \vspace{10pt}
-			Bsp: Aktivität der Region 1
+			
+			%\\ \vspace{10pt}
+			
+			
+			
+			%\pause 
+				\vspace{15pt}
+			%	\\
+				\scalebox{.88}{					
+				\colorbox{maincolor!10}{
+					$
+					\dot{z}(t)=A\cdot z(t)+\sum_{j}u_j(t)B^j\cdot z(t)+C\cdot u(t)
+					$}}	
+				\vspace{0.5cm}	\\
+			 Bsp: Aktivität der Region 1
 				\scalebox{.8}{
 					\begin{minipage}{\textwidth}					
 					$
@@ -256,14 +304,7 @@
 					$
 					\end{minipage}
 				}
-				\pause 
-				\vspace{15pt}
-				\\
-				\scalebox{.88}{					
-				\centering{\colorbox{maincolor!10}{
-					$
-					\dot{z}(t)=A\cdot z(t)+\sum_{j}u_j(t)B^j\cdot z(t)+C\cdot u(t)
-					$}}	}			
+			
 			\scalebox{.8}{
 				\begin{minipage}{\textwidth}		
 					\vspace{16pt}
@@ -297,83 +338,7 @@
 		\end{columns}
 	\end{frame}
 	
-	\begin{frame}{Bilineares Modell} %Seite 2 - bilineares Modell
-		\begin{columns}
-			\column[t]{5.5cm}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.95\linewidth]{res/bilinearesModell_neu.eps}
-			\end{figure}
-			\centering
-			\scalebox{.6}{
-				\begin{minipage}{1.3\textwidth}
-					\begin{block}{Parameter A, B, C}
-						\begin{itemize}
-							\item A: feste Verknüpfung der Hirnregionen
-							\item B: Einfluss des Inputs auf Konnektivität
-							\item C: Einfluss des Inputs auf neuronale Aktivität der Hirnregionen
-						\end{itemize}
-					\end{block}
-				\end{minipage}
-			}
-			\column[t]{9cm}
-			Taylorentwicklung
-			\scalebox{.8}{
-				\begin{minipage}{\textwidth}					
-					$
-					\dot{z}=f(z(t),u(t)) \approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu
-					$
-				\end{minipage}
-			}
-			\\ \vspace{15pt}
-			Bsp: Aktivität der Region 1
-			\scalebox{.8}{
-				\begin{minipage}{\textwidth}					
-					$
-					\dot{z}_1 =a_{11}z_1+a_{12}z_2+a_{13}z_3+u_2b_{13}^{(2)}+c_{11}u_1
-					$
-				\end{minipage}
-			}
-			\vspace{10pt}
-			\\
-			\scalebox{.88}{					
-				\centering{\colorbox{maincolor!10}{
-						$
-						\dot{z}(t)=A\cdot z(t)+\sum_{j}u_j(t)B^j\cdot z(t)+C\cdot u(t)
-						$}}	}			
-			\scalebox{.8}{
-				\begin{minipage}{\textwidth}		
-					\vspace{16pt}
-					$ A=
-					\begin{pmatrix}
-					a_{11} & a_{12} & a_{13}\\
-					a_{21} & a_{22} & a_{23}\\
-					a_{31} & a_{32} & a_{33}
-					\end{pmatrix}
-					$
-					\hspace{5pt} 
-					$ B^{(2)}=
-					\begin{pmatrix}
-					0	& 0 & b_{13}^{(2)}\\
-					0 	& 0 & b_{23}^{(2)}\\
-					0	& 0 & 0
-					\end{pmatrix}
-					$
-					\\
-					\\
-					\\					
-					$ C=
-					\begin{pmatrix}
-					c_{11}	& 0\\
-					0 	& 0 \\
-					0	& 0  
-					\end{pmatrix}
-					$										
-				\end{minipage}
-			}				
-		\end{columns}
-	\end{frame}	
-	
+		
 \subsection{Hämodynamisches Modell}
 \begin{frame}{Vergleichbarkeit}
 Bilineares Modell $\Rightarrow$ Gehirnaktivität $z_i(t)$\\~\\
@@ -389,6 +354,7 @@ Experiment (funktionelle MRT)$\Rightarrow$ BOLD-Signal/Kontrast $y_i(t)$\\
 \end{frame}
 
 \begin{frame}{Hämodynamisches Modell $z_i(t)\rightarrow y_i(t)$}
+ \vspace{-0.9cm}
 \begin{flalign*}
 s_i(t): &\text{ Zusammenfassung mehrerer neurogener Signale}&\\
  f^{in}_i(t): &\text{ (sauerstoffreicher) Blutzufluss} &\\
@@ -396,12 +362,13 @@ s_i(t): &\text{ Zusammenfassung mehrerer neurogener Signale}&\\
  q_i(t): &\text{ Desoxyhämoglobinmenge}
  \end{flalign*}
  \pause
+ \vspace{-0.9cm}
 \begin{flalign*}
-\dot{s}_i= &z_i-\kappa s_i -\gamma (f^{in}_i-1)&\\
-\dot{f}^{in}_i=&s_i&\\
-\tau\dot{v}_i=&f^{in}_i-f^{out}_i=f^{in}_i-v_i^{1/\alpha}&\\
-\tau\dot{q}_i=&f^{in}_iE_i/\rho-f^{out}_iq_i/v_i&
-\end{flalign*}
+\dot{s}_i &= z_i-\kappa s_i -\gamma (f^{in}_i-1)&\\
+\dot{f}^{in}_i &= s_i&\\
+\tau\dot{v}_i &= f^{in}_i-f^{out}_i=f^{in}_i-v_i^{1/\alpha}&\\
+\tau\dot{q}_i &= f^{in}_iE_i/\rho-f^{out}_iq_i/v_i&
+\end{flalign*} \\[0.5cm]
 \pause
 BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 \end{frame}
@@ -530,8 +497,11 @@ BOLD-Signal (fMRT): $y_i=V_0(k_1(1-q_i)+k_2(1-q_i/v_i)+k_3(1-v_i))$
 \section{Literatur}
 	\begin{frame}{Literatur}
 		\begin{itemize}
-			\item \textit{Dynamic causal modelling} \\ {\small K.J. Friston, L. Harrison and W. Penny / NeuroImage (2003)} \\ {\footnotesize \url{web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf}}
-			\item Seite „Funktionelle Magnetresonanztomographie“. In: Wikipedia, Die freie Enzyklopädie. Bearbeitungsstand: 18. Dezember 2015, 11:32 UTC. URL: \url{https://de.wikipedia.org/w/index.php?title=Funktionelle_Magnetresonanztomographie&oldid=149177539} (Abgerufen: 7. Juni 2016, 12:05 UTC) 
+			\item \textit{Dynamic causal modelling} \\ {\small K.J. Friston, L. Harrison and W. Penny / NeuroImage \textbf{4} (2003)} \\ {\footnotesize \url{web.mit.edu/swg/ImagingPubs/connectivity/Dcm_Friston.pdf}}
+			\item \textit{Funktionelle Magnetresonanztomographie}\\  {\small In: Wikipedia, Die freie Enzyklopädie}\\{\footnotesize \url{de.wikipedia.org/w/index.php?title=Funktionelle_Magnetresonanztomographie&oldid=149177539}}  {\tiny(Abgerufen: 7. Juni 2016, 12:28 UTC)}	
+			\item \textit{The Variability of Human, BOLD Hemodynamic Responses} \\ {\small G. K. Aguirre, E. Zarahn  and M. D’Esposito / NeuroImage \textbf{8} (1998)}	
+			%\url{https://de.wikipedia.org/wiki/Funktionelle_Magnetresonanztomographie} 
+>>>>>>> dff1f8017eb048544295eaf912440e6071ad4abe
 %			\item \textit{{\small Bayesian Estimation of Dynamical Systems: An Application to fMRI}} \\ {\small K.J. Friston / NeuroImage (2002)} \\ {\footnotesize \url{www.sciencedirect.com/science/article/pii/S1053811901910444}}
 		\end{itemize}
 	\end{frame}
