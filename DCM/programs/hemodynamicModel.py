@@ -39,13 +39,7 @@ def stateEquations(x,u,theta,tstep):
     alpha = 0.32
     rho = 0.34    
     N = np.size(theta[0],0)           #Netzwerkgröße
-    
-    # Berechnung von sum u_j*B_j    
-    D = 0                         
-    for i in range(len(theta[1])):
-        D = D + np.dot(theta[1][i],u[i,tstep])                 
-    
-        
+
     # Die zeitabhängigen Variablen werden aus dem Gesamtvektor herausgeschnitten 
     z = np.vsplit(x,(0,N))[1]         
     s = np.vsplit(x,(N,2*N))[1]
@@ -53,8 +47,21 @@ def stateEquations(x,u,theta,tstep):
     v = np.vsplit(x,(3*N,4*N))[1]
     q = np.vsplit(x,(4*N,5*N))[1]
     
+    
+    # Berechnung von sum u_j*B_j    
+    B = 0                         
+    for i in range(len(theta[1])):
+        B = B + np.dot(theta[1][i],u[i,tstep])
+        
+    # Berechnung von sum z_j*D_j    
+    D = 0                         
+    for i in range(len(theta[3])):
+        D = D + np.dot(theta[3][i],z[i,tstep])                  
+    
+        
+    
     # Differentialgleichungen des Modells
-    z_dot = np.dot((theta[0] + D),z[:,tstep]) + np.dot(theta[2],u[:,tstep])      
+    z_dot = np.dot((theta[0] + B + D),z[:,tstep]) + np.dot(theta[2],u[:,tstep])      
     s_dot = z[:,tstep] - kappa * s[:,tstep] - gamma * ( f[:,tstep] - 1 )
     f_dot = s[:,tstep]
     v_dot = 1/tau * ( f[:,tstep] - v[:,tstep]**(1/alpha) )

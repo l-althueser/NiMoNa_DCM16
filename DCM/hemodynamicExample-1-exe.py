@@ -13,9 +13,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from programs import RK4 as RK4
-from programs import Euler as RK1
+#from programs import Euler as RK1
 from programs import hemodynamicModel as HM
-from programs import bilinearModel as BM
+#from programs import bilinearModel as BM
 
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
@@ -28,7 +28,7 @@ A = np.array([[-1.,0.,0. ],
 			  [0.3,-1,0.2],
 			  [0.6,0.,-1.]]) # Kopplung 
 
-B1 = np.zeros((3,3))         # Induzierte Kopplung
+B1 = np.zeros((3,3))         # Induzierte Kopplungänderung durch Stimuli
 B2 = np.array([[0  , 0, 0  ],
 			   [0  , 0, 0.8],
 			   [0.1, 0, 0  ]])
@@ -38,6 +38,13 @@ C = np.array([[1, 0],
 			  [0, 0],
 			  [0, 0]])       # äußerer Einfluss auf Hirnaktivität
 
+D1 = np.zeros((3,3))         # Neuronal induzierte Kopplungsänderung
+D2 = np.array([[0  , 0, 0  ],
+			   [0  , 0, 0.8],
+			   [0.1, 0, 0  ]])
+D3 = np.zeros((3,3))
+D = np.array([D1, D2])       # Zusammenfassen der neuronalen Kopplungsänderung in ein Array
+          
 # äußerer Stimulus
 u = np.zeros((len(B), len(t)))             
 u[0,101:-99:200] = 10.       # Stimulus u1   
@@ -51,7 +58,7 @@ x_0 = np.ones(15)
 x_0[0:6] = 0.
 
 # Zusammenfassen der Parameter für das "hemodynamicModel"
-theta = list([A,B,C])
+theta = list([A,B,C,D])
 
 #-----------------------------------------------------------------------------------------------------------------
 # Simulation 
