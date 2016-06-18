@@ -161,15 +161,16 @@ ax6.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$z(t)$', fontsize = 16.)
-plt.title('Gehirnaktivität nach Region')
+plt.title('Gehirnaktivitaet nach Region')
 #plt.show()
 
-f2.savefig('hemodynamicExample-1_bilinear_Aktivität.eps')
+f2.savefig('hemodynamicExample-1_bilinear_Aktivitaet.eps')
 
 #--------------------------------------------------------------------- Lineares Modell zum Vergleich -----------------------------------------------
-# Änderung der Anfagsparameter B=0
+# Änderung der Anfagsparameter B=0 und D=0
 Blin = np.array([np.zeros((3,3))])
-thetalin = list([A,Blin,C])
+Dlin = np.array([np.zeros((3,3))])
+thetalin = list([A,Blin,C,Dlin])
 
 #Simulation
 xlin = RK4.RK4(HM.stateEquations,thetalin,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
@@ -250,9 +251,9 @@ ax6lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
 plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$z(t)$', fontsize = 16.)
-plt.title('Gehirnaktivität nach Region')
+plt.title('Gehirnaktivitaet nach Region')
 
-f4.savefig('hemodynamicExample-1_linear_Aktivität.eps')
+f4.savefig('hemodynamicExample-1_linear_Aktivitaet.eps')
 
 plt.show()
 

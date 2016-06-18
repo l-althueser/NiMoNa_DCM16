@@ -41,7 +41,6 @@ D1 = np.zeros((3,3))         # Neuronal induzierte Kopplungsänderung
 D2 = np.array([[0  , 0, 0  ],
 			   [0  , 0, 0.8],
 			   [0.1, 0, 0  ]])
-D3 = np.zeros((3,3))
 D = np.array([D1, D2])       # Zusammenfassen der neuronalen Kopplungsänderung in ein Array
           
 # äußerer Stimulus
@@ -74,7 +73,8 @@ y = HM.BOLDsignal(x)                                    # Berechnung des BOLD-Si
 # ------------- Linear 
 # Änderung der Anfagsparameter B=0
 Blin = np.array([np.zeros((2,2))])
-thetalin = list([A,Blin,C])
+Dlin = np.array([np.zeros((2,2))])
+thetalin = list([A,Blin,C,Dlin])
 
 #Simulation
 xlin = RK4.RK4(HM.stateEquations,thetalin,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens

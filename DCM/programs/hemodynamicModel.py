@@ -54,7 +54,7 @@ def stateEquations(x,u,theta,tstep):
         B = B + np.dot(theta[1][i],u[i,tstep])
         
     # Berechnung von sum z_j*D_j    
-    D = 0                         
+    D = 0                        
     for i in range(len(theta[3])):
         D = D + np.dot(theta[3][i],z[i,tstep])                  
     
