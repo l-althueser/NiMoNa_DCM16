@@ -37,10 +37,10 @@ B = np.array([B1, B2])       # Zusammenfassen der ind. Kopplung in ein Array
 C = np.array([[1, 0],
 			  [0, 0]])       # äußerer Einfluss auf Hirnaktivität
 
-D1 = np.zeros((3,3))         # Neuronal induzierte Kopplungsänderung
-D2 = np.array([[0  , 0, 0  ],
-			   [0  , 0, 0.8],
-			   [0.1, 0, 0  ]])
+D1 = np.zeros((2,2))         # Neuronal induzierte Kopplungsänderung
+D2 = np.array([[0  , 0  ],
+			   [0  , 0],
+			   [0.1, 0 ]])
 D = np.array([D1, D2])       # Zusammenfassen der neuronalen Kopplungsänderung in ein Array
           
 # äußerer Stimulus
