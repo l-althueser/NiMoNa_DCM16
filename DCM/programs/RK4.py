@@ -20,8 +20,9 @@ import numpy as np
 
 def RK4(f,theta,u,x_0,t0,T,dt):  
     #Input: Funktion, Parameterset, Stimulus, Anfangswert(array), Startpunkt, Endpunkt, Zeitschrittweite 
-    
-    x = np.zeros((int(len(x_0)), int((T - t0) / dt + 1)))     #Größe der Endmatrix festlegen
+    t = np.arange(t0,T,dt)    # Zeitarray
+ #   x = np.zeros((int(len(x_0)), int((T - t0) / dt + 1)))     #Größe der Endmatrix festlegen
+    x = np.zeros((int(len(x_0)), len(t)))    
     x[:,0] = x_0                                    # Startbedingungen in erster Spalte
        
     for i in range(0,int(np.size(x,1))-1):

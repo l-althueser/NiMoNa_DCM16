@@ -3,10 +3,13 @@
 @author: Tobias
          
 Beschreibung:
-Implementierung der DGL des EEG Modells nach "Dynamic causal models of steady-state responses", Friston 2009
+Implementierung der DGL des EEG Modells nach "Dynamic causal models of steady-state responses",
+ hier jedoch in der vereinfachten Version von "A neural mass model for MEG/EEG:
+coupling and neuronal dynamics", Friston, 2003. 
 
 Funktionsweise:
-Die Zustandgleichungen werden mit dem RK4 oder Eulerverfahren gelöst. Um eine Simulation zu starten, müssen folgende Startparameter übergeben werden:
+Die Zustandgleichungen werden mit dem RK4 oder Eulerverfahren gelöst. Um eine Simulation zu starten, müssen folgende 
+Startparameter übergeben werden:
 u: Anregungen/Stimulus
 thetha: Laterale, Vorwarts und rueckwaerts Kopplung, sowie Stimulusauswirkungsmatrix
 Die Parameter x und tstep werden aus dem Runge-Kutta-Verfahren übernommen.
@@ -28,21 +31,18 @@ def stateEquations(x,u,theta,tstep):
     AB = theta[1]
     AF = theta[2]
     C = theta[3]
-    k_ex = 4.
-    k_in = 16. 
-    H_ex = 8.
-    H_in = 32.
-    gamma1 = 128.
-    gamma2 = 128.
-    gamma3 = 64.
-    gamma4 = 64.
-    gamma5 = 4.
+    k_ex = 1./10.
+    k_in = 0.05 
+    H_ex = 3.25
+    H_in = 22.
+    gamma1,gamma2,gamma3,gamma4,gamma5=0,0,0,0,0
     N = np.size(x[:,0])/12           #Netzwerkgröße
     
     """
     x steht für ein Potential, v für den Strom, p kennzeichnet Pyramidalzellen, i inhibitorische Interneureonen, s spiny cells
     indizes ex bzw. in stehen für den exzitatorischen bzw. inhibitorischen Teil
     """
+    
     # Die zeitabhängigen Variablen werden aus dem Gesamtvektor herausgeschnitten 
     xp_ex = np.vsplit(x,(0,N))[1]  
     vp_ex = np.vsplit(x,(N,2*N))[1]         
@@ -59,28 +59,23 @@ def stateEquations(x,u,theta,tstep):
     vi_in = np.vsplit(x,(10*N,11*N))[1]       
     xi_ges = np.vsplit(x,(11*N,12*N))[1]
 
-    
+    #Die Teile die in der vereinfachten Version nicht benötigt werden, werden hier auf null gesetzt
+    xp_in_dot,vp_in_dot,xp_ges_dot,vi_in_dot,xi_in_dot,xi_ges_dot=np.zeros(3),np.zeros(3),np.zeros(3),np.zeros(3),np.zeros(3),np.zeros(3)
 
         
     
     # Differentialgleichungen des Modells
     #DGL für Pyramidalneuronen
     xp_ex_dot = vp_ex[:,tstep]
-    vp_ex_dot = k_ex*H_ex*(np.dot((AB+AL),sig(xp_ges[:,tstep]))+gamma2*sig(xs[:,tstep]))-2.*k_ex*vp_ex[:,tstep]-k_ex**2.*xp_ex[:,tstep]
-    xp_in_dot = vp_in[:,tstep]
-    vp_in_dot = k_in*H_in*gamma4*sig(xi_ges[:,tstep])-2.*k_in*vp_in[:,tstep]-k_in**2.*xp_in[:,tstep]
-    xp_ges_dot = xp_ex[:,tstep]-xp_in[:,tstep]
+    vp_ex_dot =k_ex*H_ex*sig2(xs[:,tstep]-xi_ex[:,tstep])-2.*k_ex*vp_ex[:,tstep]-k_ex**2.*xp_ex[:,tstep]
     
     #DGL für Spiny Neuronen
     xs_dot = vs[:,tstep]
-    vs_dot = k_ex*H_ex*(np.dot((AF+AL+gamma1*np.eye(3)),sig(xp_ges[:,tstep]))+np.dot(C,u[:,tstep]))-2.*k_ex*vs[:,tstep]-k_ex**2.*xs[:,tstep]
+    vs_dot = k_ex*H_ex*(sig2(xp_ex[:,tstep])+np.dot(C,u[:,tstep]))-2.*k_ex*vs[:,tstep]-k_ex**2.*xs[:,tstep]
     
          #DGL für inhibitorische Interneuronen
     xi_ex_dot = vi_ex[:,tstep]
-    vi_ex_dot = k_ex*H_ex*np.dot((AB+AL+gamma3*np.eye(3)),sig(xp_ges[:,tstep]))-2.*k_ex*vi_ex[:,tstep]-k_ex**2.*xi_ex[:,tstep]
-    xi_in_dot = vi_in[:,tstep]
-    vi_in_dot = k_in*H_in*gamma5*sig(xi_ges[:,tstep])-2.*k_in*vi_in[:,tstep]-k_in**2.*xi_in[:,tstep]
-    xi_ges_dot = xi_ex[:,tstep]-xi_in[:,tstep]
+    vi_ex_dot =k_in*H_in*sig2(xp_ex[:,tstep])-2.*k_in*vi_ex[:,tstep]-k_in**2.*xi_ex[:,tstep]
     
           
     # Zum Gesamtvektor zum Zeitpunkt tstep zusammenfügen  
@@ -90,13 +85,15 @@ def stateEquations(x,u,theta,tstep):
 
 
 
-
-#Die in dem Paper "Dynamic causal models of steady-state responses" angegebene Sigmoidfunktion
-def sig(x): 
+#Die in dem Paper "A neural mass model for MEG/EEG: coupling and neuronal dynamics" angegebene Sigmoidfunktion
+def sig2(x): 
     r=0.56
-    return (1./(1.+np.exp(-r*x))-1./2.)
-
-
+    c1=135.
+    v0=6.
+    c2=0.8*135.
+    e0=5.
+    return (c1*e0/(1+np.exp(r*(v0-c2*x))))
+#    
         
 
 

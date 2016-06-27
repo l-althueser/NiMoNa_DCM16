@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """
-@author: Tobias
+@author: Timo
 
 Beschreibung:
 Simulation eines Netzwerkes bestehend aus 3 Regionen nach dem 
-EEG Modell nach "Dynamic causal models of steady-state responses", Friston 2009. 
+EEG Modell nach "A neural mass model for MEG/EEG:
+coupling and neuronal dynamics", Friston, 2003.  
 
 
 Pythonversion:
@@ -16,7 +17,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from programs import RK4 as RK4
+#from programs import Euler as RK1
 from programs import EEGModel as EEG
+#from programs import bilinearModel as BM
 
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
@@ -45,7 +48,7 @@ C = np.array([[1., 0],
 
 # äußerer Stimulus
 u = np.zeros((2, len(t)))             
-u[0,0:7] = 2.      # Stimulus u1   
+u[0,0:2] = 2.      # Stimulus u1   
 
 # Anfangsbedingunden
 N=3             #Netzwerkanzahl
@@ -59,7 +62,7 @@ theta = list([AL,AB,AF,C])
 # Simulation
 x = RK4.RK4(EEG.stateEquations,theta,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
 
-y = np.vsplit(x,(4*N,5*N))[1]               #EEG-Messstrom, xp_ges in unserer Notation (siehe EEGModel.py)
+y = np.vsplit(x,(5*N,6*N))[1]-np.vsplit(x,(7*N,8*N))[1]       #EEG-Messstrom, xs-xi_ex in unserer Noatation (siehe EEGModel_old.py)
 
 
 plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
@@ -90,12 +93,13 @@ plt.setp(ax3.get_xticklabels(), fontsize = 14.)
 plt.xticks(np.arange(10,110,10))
 ax3.tick_params(width = 1)
 
+#Messtrom in den Regionen plotten
 # Region 1:
-plt.plot(t,y[0,:],'r',label='Region 1')   
+plt.plot(t,y[0,:],'r',label='Region 1')      
 # Region 2:
-plt.plot(t,y[1,:],'g',label='Region 2')      
+plt.plot(t,y[1,:],'g',label='Region 2')     
 #Region 3:
-plt.plot(t,y[2,:],'b',label='Region 3')      
+plt.plot(t,y[2,:],'b',label='Region 3')     
 
 ax3.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
           fancybox=True, shadow=True, ncol=5)
