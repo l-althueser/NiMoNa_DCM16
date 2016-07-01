@@ -4,7 +4,7 @@
 Beschreibung:
 Simulation eines Netzwerkes bestehend aus 3 Regionen. 
 Grafik folgt.
-nicht-linear
+samt nicht-linearer Erweiterung
 
 Pythonversion:
 3.5.1     
@@ -17,42 +17,42 @@ from programs import RK4 as RK4
 #from programs import Euler as RK1
 from programs import hemodynamicModel as HM
 #from programs import bilinearModel as BM
-
+  
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
 T = 100.                     # Endzeit
 t0 = 0.                      # Anfangszeit
 dt = 0.1                     # Zeitschrittlaenge         
-t = np.arange(t0,T+dt,dt)    # Zeitarray
+t = np.arange(t0,T,dt)    # Zeitarray
     
-A = np.array([[-1,0.3,0 ],
-			  [0.3,-1,0.5],
-			  [0,0.5,-1]]) # Kopplung 
+A = np.array([[-1.,0.,0. ],
+              [0.2,-1.,0.3],
+              [0.,0.2,-1.]]) # Kopplung 
 
 B1 = np.zeros((3,3))         # Induzierte Kopplungänderung durch Stimuli
-B2 = np.array([[0, 0, 0],
-			   [0, 0, 0],
-			   [0, 0, 0  ]])
+B2 = np.array([[0., 0., 0.],
+			   [0., 0., 0.3],
+			   [0., 0.0, 0.  ]])
 B = np.array([B1, B2])       # Zusammenfassen der ind. Kopplung in ein Array
           
-C = np.array([[1, 0],
-			  [0, 0],
-			  [0, 1]])       # äußerer Einfluss auf Hirnaktivität
+C = np.array([[0.5, 0.0],
+			  [0., 0.0],
+			  [0.1, 0.]])       # äußerer Einfluss auf Hirnaktivität
 
 D2 = np.zeros((3,3))         # Neuronal induzierte Kopplungsänderung
-D1 = np.array([[ 0, 0, 0],
-			   [ 0, 0, 0],
-			   [0, 0, 0]])
+D1 = np.array([[ 0., 0., 0.],
+			   [ 0., 0., 0.0],
+			   [0., 0., 0.]])
 D3 = np.zeros((3,3))
-D = np.array([D1, D2])       # Zusammenfassen der neuronalen Kopplungsänderung in ein Array
+D = np.array([D1, D2, D3])       # Zusammenfassen der neuronalen Kopplungsänderung in ein Array
           
 # äußerer Stimulus
 u = np.zeros((len(B), len(t)))             
-u[0,101:-99:200] = 10.       # Stimulus u1   
-
-u[1,451:550] = 2.            # Stimulus u2 
-u[1,251:350] = 5.            # Stimulus u2
-u[1, 691:910] = 2.           # Stimulus u2
+u[0,101:-99:200] = 10.       # Stimulus u1 
+ 
+u[1,250:350] = 5.            # Stimulus u2
+u[1,451:550] = 3.            # Stimulus u2
+u[1,691:910] = 3.            # Stimulus u2
 
 # Anfangsbedingunden  
 x_0 = np.ones(15)
@@ -69,13 +69,16 @@ x = RK4.RK4(HM.stateEquations,theta,u,x_0,t0,T,dt)      # Lösung mithilfe des R
 #x = RK1.Euler(HM.stateEquations,theta,u,x_0,t0,T,dt)   # Lösung mithilfe des expl. Euler-Verfahrens
 y = HM.BOLDsignal(x)                                    # Berechnung des BOLD-Signals
 
+
+
+
 plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
 
 #-----------------------------------------------------------------------------------------------------------------
 # Plotten Bilineares Modell
 #-------------------------- BOLD ------------------------------------
 f1 = plt.figure(1) 
-f1.suptitle('Bilineares Modell', fontsize = 20)
+f1.suptitle('Nichtlineares Modell', fontsize = 20)
 # Stimulus 
 ax1 = plt.subplot(311)
 ax1.tick_params(width = 1)
@@ -111,11 +114,12 @@ plt.xlabel('Zeit t', fontsize = 14.)
 plt.ylabel('$y(t)$', fontsize = 16.)
 plt.title('BOLD-Signal nach Region')
 
-f1.savefig('hemodynamicExample-1-nichtlinear-BOLD.eps')
+
+f1.savefig('hemodynamicExample-3R-BOLD.eps')
 
 #-------------------------- Gehirnaktivität ------------------------------------
 f2 = plt.figure(2)
-f2.suptitle('Bilineares Modell', fontsize = 20)
+f2.suptitle('Nichtlineares Modell', fontsize = 20)
 # Stimulus plotten
 ax4 = plt.subplot(311)
 ax4.tick_params(width = 1)
@@ -165,98 +169,8 @@ plt.ylabel('$z(t)$', fontsize = 16.)
 plt.title('Gehirnaktivitaet nach Region')
 #plt.show()
 
-f2.savefig('hemodynamicExample-1-nichtlinear-Aktivitaet.eps')
+f2.savefig('hemodynamicExample-3R-Aktivitaet.eps')
 
-#--------------------------------------------------------------------- Lineares Modell zum Vergleich -----------------------------------------------
-# Änderung der Anfagsparameter B=0 und D=0
-Blin = np.array([np.zeros((3,3))])
-Dlin = np.array([np.zeros((3,3))])
-thetalin = list([A,Blin,C,Dlin])
-
-#Simulation
-xlin = RK4.RK4(HM.stateEquations,thetalin,u,x_0,t0,T,dt)      # Lösung mithilfe des RK4-Verfahrens
-ylin = HM.BOLDsignal(xlin)                                    # Berechnung des BOLD-Signals
-
-# Plotten
-#-------------------------- BOLD ------------------------------------
-f3 = plt.figure(3) 
-f3.suptitle('Lineares Modell', fontsize = 20)
-# Stimulus 
-ax1lin = plt.subplot(311)
-ax1lin.tick_params(width = 1)
-plt.plot(t,u[0,:])
-plt.setp(ax1lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_1(t)$', fontsize = 16.)
-plt.title('Stimuli')
-
-ax2lin = plt.subplot(312,sharex = ax1lin, sharey =ax1lin)
-ax2lin.tick_params(width = 1)
-plt.plot(t,u[1,:])
-ax2lin.set_ylim([0,np.max(u)+1])
-plt.setp(ax2lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_2(t)$', fontsize = 16.)
-
-# Signal Plotten
-ax3lin = plt.subplot(313,sharex = ax1lin)
-plt.setp(ax3lin.get_xticklabels(), fontsize = 14.)
-plt.xticks(np.arange(10,110,10))
-ax3lin.tick_params(width = 1)
-
-# Region 1:
-plt.plot(t,ylin[0,:],'r',label='Region 1')      #BOLD-Signal
-# Region 2:
-plt.plot(t,ylin[1,:],'g',label='Region 2')      #BOLD-Signal
-#Region 3:
-plt.plot(t,ylin[2,:],'b',label='Region 3')      #BOLD-Signal
-
-ax3lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
-          fancybox=True, shadow=True, ncol=5)
-plt.xlabel('Zeit t', fontsize = 14.)
-plt.ylabel('$y(t)$', fontsize = 16.)
-plt.title('BOLD-Signal nach Region')
-
-f3.savefig('hemodynamicExample-1-nichtlinear-BOLD.eps')
-
-#-------------------------- Gehirnaktivität ------------------------------------
-f4 = plt.figure(4)
-f4.suptitle('Lineares Modell', fontsize = 20)
-# Stimulus plotten
-ax4lin = plt.subplot(311)
-ax4lin.tick_params(width = 1)
-plt.plot(t,u[0,:])
-plt.setp(ax4lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_1(t)$', fontsize = 16.)
-plt.title('Stimuli')
-
-ax5lin = plt.subplot(312,sharex = ax4lin, sharey =ax4lin)
-ax5lin.tick_params(width = 1)
-plt.plot(t,u[1,:])
-ax5lin.set_ylim([0,np.max(u)+1])
-plt.setp(ax5lin.get_xticklabels(), visible=False)
-plt.ylabel('$u_2(t)$', fontsize = 16.)
-
-# Gehirnaktivität plotten
-ax6lin = plt.subplot(313,sharex = ax4lin)
-plt.setp(ax6lin.get_xticklabels(), fontsize = 14.)
-plt.xticks(np.arange(10,110,10))
-ax6lin.tick_params(width = 1)
-
-# Region 1:
-plt.plot(t,xlin[0,:],'r',label='Region 1')     #Gehirnaktivität
-# Region 2:
-plt.plot(t,xlin[1,:],'g',label='Region 2')     #Gehirnaktivität
-# Region 3:
-plt.plot(t,xlin[2,:],'b',label='Region 3')     #Gehirnaktivität
-
-ax6lin.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2),
-          fancybox=True, shadow=True, ncol=5)
-plt.xlabel('Zeit t', fontsize = 14.)
-plt.ylabel('$z(t)$', fontsize = 16.)
-plt.title('Gehirnaktivitaet nach Region')
-
-f4.savefig('hemodynamicExample-1_linear_Aktivitaet.eps')
-
-plt.show()
 
 
 

@@ -8,7 +8,7 @@ Implementierung der Funktionen die zur Simulation des hämodynamischen Modells b
 Funktionsweise:
 Die Zustandgleichungen werden mit dem RK4 oder Eulerverfahren gelöst. Um eine Simulation zu starten, müssen folgende Startparameter übergeben werden:
 u: Anregungen/Stimulus
-thetha: [Eigenkopplung, Induzierte Kopplung(en), Äußerer Einfluss]
+thetha: [Eigenkopplung, Induzierte Kopplung(en), Äußerer Einfluss, Nichtlinearer Einfluss auf Region]
 Die Parameter x und tstep werden aus dem Runge-Kutta-Verfahren übernommen.
 
 Anmerkung:
