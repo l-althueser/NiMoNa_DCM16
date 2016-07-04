@@ -28,15 +28,16 @@ def stateEquations(x,u,theta,tstep):
     AB = theta[1]
     AF = theta[2]
     C = theta[3]
-    k_ex = 4.
-    k_in = 16. 
-    H_ex = 8.
-    H_in = 32.
+    t=1000.
+    k_ex = 0.4
+    k_in = 1.6
+    H_ex = 8./t
+    H_in = 32./t
     gamma1 = 128.
     gamma2 = 128.
     gamma3 = 64.
     gamma4 = 64.
-    gamma5 = 4.
+    gamma5 = 64.
     N = np.size(x[:,0])/12           #Netzwerkgröße
     
     """
@@ -94,9 +95,16 @@ def stateEquations(x,u,theta,tstep):
 #Die in dem Paper "Dynamic causal models of steady-state responses" angegebene Sigmoidfunktion
 def sig(x): 
     r=0.56
+    #t=1000.
+    
     return (1./(1.+np.exp(-r*x))-1./2.)
 
-
+#import matplotlib.pyplot as plt
+#
+#plt.figure()
+#x=np.arange(-10,10)
+#plt.plot(x,sig(x))
+#plt.show() 
         
 
 

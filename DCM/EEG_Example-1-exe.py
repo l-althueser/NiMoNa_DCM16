@@ -20,9 +20,9 @@ from programs import EEGModel as EEG
 
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
-T =0.001                      # Endzeit
+T =200.                      # Endzeit
 t0 = 0.                      # Anfangszeit
-dt = 0.0001                     # Zeitschrittlaenge         
+dt = 0.1                     # Zeitschrittlaenge         
 t = np.arange(t0,T,dt)    # Zeitarray
 AL = 4.*np.array([[0.,0.,0. ],
 			  [0.,0.,0.],
@@ -45,7 +45,7 @@ C = np.array([[1., 0],
 
 # äußerer Stimulus
 u = np.zeros((2, len(t)))             
-u[0,0:7] = 2.      # Stimulus u1   
+u[0,0:2] = 2.      # Stimulus u1   
 
 # Anfangsbedingunden
 N=3             #Netzwerkanzahl
@@ -64,7 +64,15 @@ y = np.vsplit(x,(4*N,5*N))[1]               #EEG-Messstrom, xp_ges in unserer No
 
 plt.rcParams['figure.figsize'] = (15.0, 10.0) # Fenstergröße anpassen
 
-#-----------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------
+#def res(x):
+#    k=4.
+#    return 0.032*t*k*np.exp(-k*t)
+#plt.figure(2)
+##x=np.arange(-10,10)
+#plt.plot(t,res(t))
+#plt.show()
+#------------------------------------------------------------
 # Plotten EEG Modell
 
 f1 = plt.figure(1) 

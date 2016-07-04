@@ -23,9 +23,9 @@ from programs import EEGModel as EEG
 
 #-----------------------------------------------------------------------------------------------------------------
 # Parameter Beispiel 1
-T =0.001                      # Endzeit
+T =100.                      # Endzeit
 t0 = 0.                      # Anfangszeit
-dt = 0.0001                     # Zeitschrittlaenge         
+dt = 0.1                     # Zeitschrittlaenge         
 t = np.arange(t0,T,dt)    # Zeitarray
 AL = 4.*np.array([[0.,0.,0. ],
 			  [0.,0.,0.],

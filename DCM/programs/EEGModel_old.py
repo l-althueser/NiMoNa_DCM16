@@ -31,10 +31,15 @@ def stateEquations(x,u,theta,tstep):
     AB = theta[1]
     AF = theta[2]
     C = theta[3]
-    k_ex = 1./10.
-    k_in = 0.05 
-    H_ex = 3.25
-    H_in = 22.
+#    k_ex = 1./10.
+#    k_in = 0.05  
+#    t=1000.
+#    H_ex = 3.25/t
+#    H_in = 22./t
+    k_ex = 4.
+    k_in = 16.
+    H_ex = 0.08
+    H_in = 0.32
     gamma1,gamma2,gamma3,gamma4,gamma5=0,0,0,0,0
     N = np.size(x[:,0])/12           #Netzwerkgröße
     
