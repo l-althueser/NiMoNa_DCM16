@@ -102,13 +102,16 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Vergleich von fMRI-Modell zu EEG-Modell}
+\begin{frame}{Konzeptioneller Vergleich von fMRI- zu EEG-Modell}
 \begin{tabular}{| c | c |}
 \hline
 \textbf{fMRI-Modell} & \textbf{EEG-Modell} \\
 \hline
 Verknüpfung einzelner Neuronen & Verknüpfung von Gehirnbereichen \\
 &  und Subregionen untereinander \\
+\hline
+Taylorentwicklung & Eingangs- und \\
+&  Ausgangsoperatoren \\
 \hline
 Gehirnaktivität = abstrakte Größe & direktes Modell für \\
 biologisches Modell nötig & Potentiale und Potentialflüsse\\
@@ -119,7 +122,7 @@ biologisches Modell nötig & Potentiale und Potentialflüsse\\
 \begin{frame}{Das EEG-Modell}
 \begin{figure}
 \centering
-\includegraphics[scale=0.45]{res/EEGModell1.png}
+\includegraphics[scale=0.4]{res/EEGModell1.png}
 \end{figure}
 \end{frame}
 
@@ -138,7 +141,7 @@ u_{ein}(t) &\quad \rightarrow \quad  v(t)=h(t)\ast u_{ein}(t) &
 \begin{frame}{Mathematische Realisierung - Neuronenausgang}
 \begin{figure}
 \centering
-\includegraphics[scale=0.2]{res/neuronausgang_sigmoid.png}
+\includegraphics[scale=0.21]{res/neuronausgang_sigmoid.png}
 \end{figure}
 
 \begin{flalign*}
@@ -147,8 +150,25 @@ v(t) &\quad \rightarrow \quad  u_{aus}(t)=S(v(t)) &
 \end{flalign*}
 \end{frame}
 
-\begin{frame}{Experimente - Vergleich mit fMRI-Modell}
+\begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{res/hemo-EEG-vergleich.eps}
+\end{figure}
+\end{frame}
 
+\begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{res/hemo-EEG-vergleich2.eps}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{res/hemo-EEG-vergleich3.eps}
+\end{figure}
 \end{frame}
 
 \section{Literatur}
