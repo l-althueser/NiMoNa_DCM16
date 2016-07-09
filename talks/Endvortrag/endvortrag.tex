@@ -73,7 +73,7 @@
 
 % --- Einstellungen
 
-\author{NiMoNa (Zwischenpräsentation) SoSe 2016}
+\author{NiMoNa (Abschlusspräsentation) SoSe 2016}
 \title{Konnektivität im Gehirn}
 %\institutelogo{Logo on title frame}
 %\institutelogosmall{Logo on other frames}
@@ -89,9 +89,196 @@
 \end{frame}
 
 \begin{frame}{Überblick}
-
-	  \tableofcontents
+	\tikz[remember picture,overlay]
+	\node at ([xshift=-2.8cm,yshift=-5cm]current page.north east)
+	{\includegraphics[height=7cm,angle=-7.5,keepaspectratio]{res/toc_2.png}};
+	\tableofcontents
+	  
 \end{frame}
+
+\section{Motivation und Ziel}
+\begin{frame}{Einleitung in DCM - \underline{D}ynamic \underline{C}ausal \underline{M}odelling}
+	\begin{columns}
+		\column[t]{6cm}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.85\linewidth]{res/brain_01.eps}
+			\\ {\small Interaktion zwischen}\\ {\small verschiedenen Hirnregionen}
+			\label{fig:brain_01}
+		\end{figure}
+		\column[t]{6cm}
+		\begin{block}{\centering Konnektivität im Gehirn}
+			\centering
+			Über die mathematische Modellierung von Interaktionen zwischen mehreren Regionen des Gehirns.
+		\end{block}
+		\vspace{0.5cm}
+		\begin{exampleblock}{\centering Ziel}
+			\centering
+			Das Aufstellen eines einfachen und realistischen neuronalen Modells aller betrachteten, interagierenden Gehirnregionen.
+		\end{exampleblock}
+	\end{columns}
+	\vskip0pt plus 1filll
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{DCM-Bilineares Modell}
+\begin{frame}{Bilineares Modell}
+	\begin{columns}
+		\column[t]{5.5cm}
+		\vspace{-20pt}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.95\linewidth]{res/160708bilinearExpl.eps}
+		\end{figure}
+		\centering
+		\vspace{-20pt}
+		\scalebox{.6}{
+			\begin{minipage}{1.3\textwidth}
+				\begin{block}{Mathematische Beschreibung}
+					\begin{itemize}
+						\item A: feste Verknüpfung der Hirnregionen
+						\item B: Einfluss des Inputs auf Konnektivität
+						\item C: Einfluss des Inputs auf neuronale Aktivität der Hirnregionen						
+					\end{itemize}
+				\end{block}
+			\end{minipage}
+		}
+		\column[t]{9cm}
+		
+		\scalebox{.8}{
+			\begin{minipage}{\textwidth}
+
+				\begin{flalign*}
+					\dot{z}(t)&=f(z(t),u(t)) &\\
+					&\approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu &\\
+				\end{flalign*}
+			\end{minipage}
+		}
+		
+		\scalebox{.8}{
+			\begin{minipage}{\textwidth}
+			\colorbox{maincolor!10}{
+				$
+				\dot{z}(t)=A\cdot z+\sum_{j}u_jB^j\cdot z+C\cdot u
+				$
+			}
+			\end{minipage}
+
+		}	
+		\scalebox{.8}{
+			\begin{minipage}{\textwidth}		
+				\vspace{16pt}
+				$ A=
+				\begin{pmatrix}
+				a_{11} 	& 0 	 & a_{13}\\
+				0		& a_{22} & a_{23}\\
+				a_{31} 	& a_{32} & a_{33}
+				\end{pmatrix}
+				$
+				\hspace{5pt} 
+				$ B^{(1)}=
+				\begin{pmatrix}
+				0	& 0 			& 0\\
+				0 	& 0 			& 0\\
+				0	& b_{32}^{(1)} 	& 0
+				\end{pmatrix}
+				$
+				\\
+				\\
+				\\					
+				$ C=
+				\begin{pmatrix}
+				c_{1}	\\
+				0 	\\
+				0	 
+				\end{pmatrix}
+				$										
+			\end{minipage}
+		}				
+	\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{DCM-Nichtlineares Modell}
+\begin{frame}{Nichtlineares Modell}
+	\begin{columns}
+		\column[t]{5.5cm}
+		\vspace{-20pt}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.95\linewidth]{res/160708nichtlinearExpl.eps}
+		\end{figure}
+		\centering
+		\vspace{-20pt}
+		\scalebox{.6}{
+			\begin{minipage}{1.3\textwidth}
+				\begin{block}{Mathematische Beschreibung}
+					\begin{itemize}
+						\item A: feste Verknüpfung der Hirnregionen
+						\item B: Einfluss des Inputs auf Konnektivität
+						\item C: Einfluss des Inputs auf neuronale Aktivität der Hirnregionen
+						\item D: Einfluss der Regionen auf Konnenktivität						
+					\end{itemize}
+				\end{block}
+			\end{minipage}
+		}
+		\column[t]{9cm}
+		
+		\scalebox{.8}{
+			\begin{minipage}{\textwidth}
+				
+				\begin{flalign*}
+				\dot{z}(t)&=f(z(t),u(t)) &\\
+				&\approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu + \frac{\partial^2 f}{\partial z^2} \frac{z^2}{2}&\\
+				\end{flalign*}
+			\end{minipage}
+		}
+		
+		\scalebox{.8}{
+			\begin{minipage}{\textwidth}
+				\colorbox{maincolor!10}{
+					$
+					\dot{z}(t)=A\cdot z+\sum_{j}u_jB^j\cdot z+C\cdot u+\sum_{i}z_{i}D^{i}\cdot z
+					$
+				}
+			\end{minipage}
+			
+		}	
+		\scalebox{.8}{
+			\begin{minipage}{\textwidth}		
+				\vspace{16pt}
+				$ A=
+				\begin{pmatrix}
+				a_{11} 	& 0 	 & a_{13}\\
+				0		& a_{22} & a_{23}\\
+				a_{31} 	& a_{32} & a_{33}
+				\end{pmatrix}
+				$
+				\hspace{5pt} 
+				$ D^{(1)}=
+				\begin{pmatrix}
+				0	& 0 			& 0\\
+				0 	& 0 			& 0\\
+				0	& d_{32}^{(1)} 	& 0
+				\end{pmatrix}
+				$
+				\\
+				\\
+				\\					
+				$ C=
+				\begin{pmatrix}
+				c_{1}	\\
+				0 	\\
+				0	 
+				\end{pmatrix}
+				$										
+			\end{minipage}
+		}				
+	\end{columns}
+\end{frame}
+
+
 
 \section{EEG Modell}
 \begin{frame}{EEG}
