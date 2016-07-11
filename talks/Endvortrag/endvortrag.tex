@@ -335,18 +335,25 @@
 \end{frame}
 
 \begin{frame}{Konzeptioneller Vergleich von fMRI- zu EEG-Modell}
+\hspace*{-0.03 \textwidth}
 \begin{tabular}{| c | c |}
 \hline
 \textbf{fMRI-Modell} & \textbf{EEG-Modell} \\
 \hline
+\multicolumn{2}{c}{\textit{Biologische Beschreibung}} \\
+\hline
 Verknüpfung einzelner Neuronen & Verknüpfung von Gehirnbereichen \\
 &  und Subregionen untereinander \\
+\hline
+\multicolumn{2}{c}{\textit{Mathematische Beschreibung}} \\
 \hline
 Taylorentwicklung & Eingangs- und \\
 &  Ausgangsoperatoren \\
 \hline
+\multicolumn{2}{c}{\textit{Zielgrößen}} \\
+\hline
 Gehirnaktivität = abstrakte Größe & direktes Modell für \\
-biologisches Modell nötig & Potentiale und Potentialflüsse\\
+$\rightarrow$ biologisches Modell nötig & Potentiale und Impulsraten\\
 \hline
 \end{tabular}
 \end{frame}
@@ -359,7 +366,7 @@ biologisches Modell nötig & Potentiale und Potentialflüsse\\
 \end{frame}
 
 \begin{frame}{Mathematische Realisierung - Neuroneneingang}
-Physikalische Größen sind Membranpotentiale und Impulsrate\\
+Physikalische Größen sind Membranpotentiale und Impulsraten\\
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{res/synaptischerspalt.png}
@@ -371,7 +378,9 @@ u_{ein}(t) &\quad \rightarrow \quad  v(t)=h(t)\ast u_{ein}(t) &
 \end{frame}
 
 \begin{frame}{Mathematische Realisierung - Neuronenausgang}
+
 \begin{figure}
+\hspace*{-0.03 \textwidth}
 \centering
 \includegraphics[scale=0.21]{res/neuronausgang_sigmoid.png}
 \end{figure}
@@ -385,7 +394,7 @@ v(t) &\quad \rightarrow \quad  u_{aus}(t)=S(v(t)) &
 \begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
 \begin{figure}
 \centering
-\includegraphics[scale=0.25]{res/hemo-EEG-vergleich.eps}
+\includegraphics[scale=0.25]{res/hemo-EEG-vergleich1.eps}
 \end{figure}
 \end{frame}
 
@@ -402,9 +411,22 @@ v(t) &\quad \rightarrow \quad  u_{aus}(t)=S(v(t)) &
 \includegraphics[scale=0.25]{res/hemo-EEG-vergleich3.eps}
 \end{figure}
 \end{frame}
- 
-\begin{frame}{Zusammenfassung}	
- \end{frame}
+
+\begin{frame}{Zusammenfassung}
+DCM für fMRI:
+\begin{itemize}
+\item Netzwerkmodell $\neq$ Observablenmodell
+\item \textit{linearer Term}:\\ Gehirn mit statischer Konnektivität
+\item \textit{bilinearer + nichtlinearer Term}:\\ Gehirn mit dynamischer Konnektivität
+\end{itemize}
+\pause
+~\\~\\
+DCM für EEG:
+\begin{itemize}
+\item Netzwerkmodell $=$ Observablenmodell
+\end{itemize}
+\end{frame}
+
 
 \section{Literatur}
 	\begin{frame}{Literatur}
