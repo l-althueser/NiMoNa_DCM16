@@ -124,7 +124,7 @@
 		\vspace{-20pt}
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.8\linewidth]{res/160711bilinearExpl.eps}
+			\includegraphics[width=0.8\linewidth]{res/160708bilinearExpl.pdf}
 		\end{figure}
 		\centering
 		\vspace{-10pt}
@@ -345,15 +345,15 @@
 Verknüpfung einzelner Neuronen & Verknüpfung von Gehirnbereichen \\
 &  und Subregionen untereinander \\
 \hline
-\multicolumn{2}{c}{\textit{Mathematische Beschreibung}} \\
-\hline
-Taylorentwicklung & Eingangs- und \\
-&  Ausgangsoperatoren \\
-\hline
 \multicolumn{2}{c}{\textit{Zielgrößen}} \\
 \hline
 Gehirnaktivität = abstrakte Größe & direktes Modell für \\
 $\rightarrow$ biologisches Modell nötig & Potentiale und Impulsraten\\
+\hline
+\multicolumn{2}{c}{\textit{Mathematische Beschreibung}} \\
+\hline
+Taylorentwicklung & Eingangs- und \\
+&  Ausgangsoperatoren \\
 \hline
 \end{tabular}
 \end{frame}
@@ -391,21 +391,30 @@ v(t) &\quad \rightarrow \quad  u_{aus}(t)=S(v(t)) &
 \end{flalign*}
 \end{frame}
 
-\begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
+
+\begin{frame}{Experimente - Vergleich lineares fMRI- mit EEG-Modell}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{res/160708VergleichfMRIvsEEG.eps}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Experimente - Vergleich lineares fMRI- mit EEG-Modell}
 \begin{figure}
 \centering
 \includegraphics[scale=0.25]{res/hemo-EEG-vergleich1.eps}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
+\begin{frame}{Experimente - Vergleich lineares fMRI- mit EEG-Modell}
 \begin{figure}
 \centering
 \includegraphics[scale=0.25]{res/hemo-EEG-vergleich2.eps}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Experimente - Vergleich fMRI- mit EEG-Modell}
+\begin{frame}{Experimente - Vergleich lineares fMRI- mit EEG-Modell}
 \begin{figure}
 \centering
 \includegraphics[scale=0.25]{res/hemo-EEG-vergleich3.eps}
@@ -418,12 +427,15 @@ DCM für fMRI:
 \item Netzwerkmodell $\neq$ Observablenmodell
 \item \textit{linearer Term}:\\ Gehirn mit statischer Konnektivität
 \item \textit{bilinearer + nichtlinearer Term}:\\ Gehirn mit dynamischer Konnektivität
+\item \textit{Beschreibung andauernder Gehirnaktivität}
 \end{itemize}
 \pause
 ~\\~\\
 DCM für EEG:
 \begin{itemize}
 \item Netzwerkmodell $=$ Observablenmodell
+\item Gehirn mit Substrukturen: intrinsische Dynamik
+\item \textit{Auflösung andauernder Gehirnaktivität} 
 \end{itemize}
 \end{frame}
 
