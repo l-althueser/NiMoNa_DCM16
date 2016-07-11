@@ -97,14 +97,14 @@
 \end{frame}
 
 \section{DCM für fMRI - Rückblick}
-\begin{frame}[t]{\underline{D}ynamic \underline{C}ausal \underline{M}odelling}
+\begin{frame}[t]{\underline{D}ynamic \underline{C}ausal \underline{M}odelling für fMRI}
 	\begin{columns}
 		\column[t]{8.3cm}
 		\vspace{-0.7 cm}
 		\begin{itemize}
 			\item \textit{Ziel:} \\Modellierung von Interaktionen in einem neuronalen Netzwerk\\[0.3cm]
-			\item \textit{Ansatz:} \\Modellierung neuronaler Zustandsentwicklung mithilfe einer Taylorreihen-Näherung\\[0.3cm]
-			\item \textit{Vergleichbarkeit mit Experiment:} \\ Hämodynamisches Modell:\\ Basierend auf Variation des Blutvolumens und des desoxygenierten Hämoglobins
+			\item \textit{Ansatz:} \\Modellierung neuronaler Zustandsentwicklung mithilfe einer Taylorreihen-Näherung\\$ \longrightarrow $ \textit{Netzwerk-Modell}\\[0.3cm]
+			\item \textit{Vergleichbarkeit mit Experiment:} \\ Hämodynamisches Modell:\\ Basierend auf Variation des Blutvolumens und des desoxygenierten Hämoglobins\\$ \longrightarrow $ \textit{Observablen-Modell}
 		\end{itemize}
 		\column[t]{4.5cm}
 			\vspace{-0.3 cm}
@@ -115,21 +115,19 @@
 			\label{fig:brain_01}
 		\end{figure}
 	\end{columns}
-\vspace*{0.5cm}
-\centering
-\colorbox{red!30}{DCM operiert nicht \underline{direkt} an der gemessenen Zeitreihe!}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Bilineares Modell}
+\begin{frame}{Bilineares Netzwerk-Modell}
 	\begin{columns}
 		\column[t]{5.5cm}
 		\vspace{-20pt}
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.95\linewidth]{res/160708bilinearExpl.eps}
+			\includegraphics[width=0.8\linewidth]{res/160711bilinearExpl.eps}
 		\end{figure}
 		\centering
-		\vspace{-20pt}
+		\vspace{-10pt}
 		\scalebox{.6}{
 			\begin{minipage}{1.3\textwidth}
 				\begin{block}{Mathematische Beschreibung}
@@ -194,21 +192,26 @@
 			\end{minipage}
 		}				
 	\end{columns}
+	
+	\centering
+	\vspace{5pt}
+	$ \rightarrow $ Neuronale Aktivität $ \leftrightarrow $ Konnektivität
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Nichtlineare Erweiterung des Modells}
-\begin{frame}{Nichtlineares Modell}
+\begin{frame}{Nichtlineare Erweiterung}
+	\vspace{-0.4cm}
 	\begin{columns}
 		\column[t]{5.5cm}
 		\vspace{-20pt}
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.95\linewidth]{res/160708nichtlinearExpl.eps}
+			\includegraphics[width=0.8\linewidth]{res/160711nichtlinearExpl.eps}
 		\end{figure}
 		\centering
-		\vspace{-20pt}
+		\vspace{-10pt}
 		\scalebox{.6}{
 			\begin{minipage}{1.3\textwidth}
 				\begin{block}{Mathematische Beschreibung}
@@ -228,7 +231,7 @@
 				
 				\begin{flalign*}
 				\dot{z}(t)&=f(z(t),u(t)) &\\
-				&\approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu + \frac{\partial^2 f}{\partial z^2} \frac{z^2}{2}&\\
+				&\approx f(0,0)+\frac{\partial f}{\partial z}z+\frac{ \partial f}{\partial u} u + \frac{\partial^2 f}{\partial z \partial u}zu + \textcolor{blue}{\frac{\partial^2 f}{\partial z^2} \frac{z^2}{2}}&\\
 				\end{flalign*}
 			\end{minipage}
 		}
@@ -237,7 +240,7 @@
 			\begin{minipage}{\textwidth}
 				\colorbox{maincolor!10}{
 					$
-					\dot{z}(t)=A\cdot z+\sum_{j}u_jB^j\cdot z+C\cdot u+\sum_{i}z_{i}D^{i}\cdot z
+					\dot{z}(t)=A\cdot z+\sum_{j}u_jB^j\cdot z+C\cdot u+\textcolor{blue}{\frac{1}{2}\sum_{i}z_{i}D^{i}\cdot z}
 					$
 				}
 			\end{minipage}
@@ -254,13 +257,13 @@
 				\end{pmatrix}
 				$
 				\hspace{5pt} 
-				$ D^{(1)}=
+				$ B^{(1)}=
 				\begin{pmatrix}
 				0	& 0 			& 0\\
 				0 	& 0 			& 0\\
-				0	& d_{32}^{(1)} 	& 0
+				0	& \textcolor{blue}{0}			 	& 0
 				\end{pmatrix}
-				$
+				$				
 				\\
 				\\
 				\\					
@@ -270,17 +273,27 @@
 				0 	\\
 				0	 
 				\end{pmatrix}
-				$										
+				$	
+				\hspace{58pt}
+				$ \textcolor{blue}{ D^{(1)}=
+				\begin{pmatrix}
+				0	& 0 			& 0\\
+				0 	& 0 			& 0\\
+				0	& d_{32}^{(1)} 	& 0
+				\end{pmatrix}
+				}$									
 			\end{minipage}
 		}				
 	\end{columns}
+	
+	
 \end{frame}
 
 \begin{frame}{Simulation eines 4-Regionen-Systems}
  \centering
  \colorbox{maincolor!10}{\underline{Idee}: \quad Autoregulation einer Region}
 	\begin{figure}
-		\includegraphics[width=0.8\textwidth]{res/160710Autoregulation1.eps}
+		\includegraphics[width=0.8\textwidth]{res/160711Autoregulation1.eps}
 	\end{figure}
 \end{frame}
 
@@ -296,7 +309,7 @@
  \centering
  \colorbox{maincolor!10}{\underline{Frage}: \quad Selbiges Resultat ohne nichtlineare Erweiterung möglich?}
 	\begin{figure}
-		\includegraphics[width=0.8\textwidth]{res/160710Autoregulation2.eps}
+		\includegraphics[width=0.8\textwidth]{res/160711Autoregulation2.eps}
 	\end{figure}
  \colorbox{maincolor!10}{\underline{Problem}: \quad Einfluss auf weitere Region}
 \end{frame}
@@ -312,7 +325,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 				EEG
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{EEG-Modell für fMRI}
+\section{EEG-Modell}
 \begin{frame}{EEG}
 \textbf{EEG = Elektroenzephalografie}
 \begin{figure}
@@ -341,7 +354,7 @@ biologisches Modell nötig & Potentiale und Potentialflüsse\\
 \begin{frame}{Das EEG-Modell}
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{res/EEGModell1.png}
+\includegraphics[scale=0.4]{res/160711EEGModell1.eps}
 \end{figure}
 \end{frame}
 
