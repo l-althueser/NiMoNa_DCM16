@@ -1,4 +1,4 @@
-Copyright (c) 2016, participants of the NiMoNa_DCM16 [University of Münster]
+Copyright (c) 2016, Lutz Althüser, Tobias Frohoff-Hülsmann, Victor Kärcher, Lukas Splitthoff and Timo Wiedemann  
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
