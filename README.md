@@ -12,7 +12,10 @@ Die Implementierung der DCM Simulationen, wie in "[DCM](DCM)" erfolgt unter Zuhi
   * [Präsentation: Dynamic causal modelling](http://www.brainmapping.org/SummerCourseSlides/DCM_NITP.pdf)<sup>[3](#note_3)</sup>
 
 ### [Vorträge zum Thema: Konnektivität im Gehirn](talks)
-Die hier enthaltenden Vorträge wurden zum Zwecke der Präsentation der Thematik und des Arbeitsstandes vor anderen Studierenden entworfen.
+Die hier enthaltenden Vorträge wurden zum Zwecke der Präsentation der Thematik und des Arbeitsstandes vor anderen Studierenden entworfen.  
+
+[Zwischenprästentation](/talks/Zwischenvortrag/zwischenvortrag.pdf)
+[Abschlusspräsentation](/talks/endvortrag/endvortrag.pdf)
 
 ### [Einfache Python Beispiele](python_examples)
 Grundlegende Informationen und Beispiele zum Thema Python sind hier zusammengefasst: [python_examples](python_examples).
