@@ -14,7 +14,7 @@ Die Implementierung der DCM Simulationen, wie in "[DCM](DCM)" erfolgt unter Zuhi
 ### [Vorträge zum Thema: Konnektivität im Gehirn](talks)
 Die hier enthaltenden Vorträge wurden zum Zwecke der Präsentation der Thematik und des Arbeitsstandes vor anderen Studierenden entworfen.  
 
-[Zwischenprästentation](/talks/Zwischenvortrag/zwischenvortrag.pdf)
+[Zwischenprästentation](/talks/Zwischenvortrag/zwischenvortrag.pdf)  
 [Abschlusspräsentation](/talks/endvortrag/endvortrag.pdf)
 
 ### [Einfache Python Beispiele](python_examples)
